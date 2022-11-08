@@ -7,7 +7,11 @@ import { HideOnMobile, ShowOnMobile } from 'theme/index'
 import PlainSelect from 'components/Select/PlainSelect'
 import { routes } from 'constants/routes'
 import MobileMenu from './MobileMenu'
-import NetworkSelect from './NetworkSelect'
+// import NetworkSelect from './NetworkSelect'
+import Image from '../Image'
+import logo from '../../assets/images/logo.png'
+import logoText from '../../assets/images/logo-text.png'
+import { isMobile } from 'react-device-detect'
 
 interface TabContent {
   title: string
@@ -125,6 +129,8 @@ export default function Header() {
       <Filler />
       <StyledAppBar>
         <Box display="flex" alignItems="center">
+          <Image src={logo} width={isMobile ? 18 : 48} />
+          <Image style={{ marginLeft: 12 }} src={logoText} height={isMobile ? 10 : 25} />
           <MainLogo id={'logo'} to={'/'}></MainLogo>
           <HideOnMobile breakpoint="md">
             <LinksWrapper>
@@ -214,7 +220,7 @@ export default function Header() {
         </Box>
 
         <Box display="flex" alignItems="center" gap={{ xs: '6px', sm: '20px' }}>
-          <NetworkSelect />
+          {/*<NetworkSelect />*/}
           <Web3Status />
           <ShowOnMobile breakpoint="md">
             <IconButton
