@@ -6,19 +6,13 @@ import home from '../../assets/images/home_icon.png'
 import node from '../../assets/images/node_icon.png'
 import earn from '../../assets/images/earn_icon.png'
 import sport from '../../assets/images/sport_icon.png'
+import { useI18n } from 'react-simple-i18n'
 
 interface TabContent {
   title: string
   icon: string
   router: string
 }
-
-const Tabs: TabContent[] = [
-  { title: '首页', icon: home, router: './home' },
-  { title: '节点', icon: node, router: './node' },
-  { title: '赚币', icon: earn, router: './earn' },
-  { title: '体育', icon: sport, router: './sport' }
-]
 
 function TabButton({ icon, title, router }: { icon: string; title: string; router: string }) {
   return (
@@ -32,6 +26,14 @@ function TabButton({ icon, title, router }: { icon: string; title: string; route
 }
 
 export default function Footer() {
+  const { t } = useI18n()
+
+  const Tabs: TabContent[] = [
+    { title: t('home.title'), icon: home, router: './home' },
+    { title: t('node.title'), icon: node, router: './node' },
+    { title: t('farm.title'), icon: earn, router: './earn' },
+    { title: t('sport.title'), icon: sport, router: './sport' }
+  ]
   return (
     <ShowOnMobile>
       <Stack position={'absolute'} bottom={0} width={'100vw'} direction={'row'} justifyContent={'space-around'}>

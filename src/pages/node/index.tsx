@@ -110,7 +110,7 @@ export default function Node() {
           <NumericalInput
             style={{ marginBottom: 20 }}
             unit="USDT"
-            balance={usdtBalance?.toExact()}
+            balance={usdtBalance?.toFixed(2)}
             placeholder={''}
             endAdornment={<img alt="" style={{ width: 28, maxWidth: 'unset', marginRight: 12 }} src={usdtImg} />}
             value={typed}
@@ -188,23 +188,18 @@ export default function Node() {
         <Grid container rowSpacing={12}>
           <InfoItem title={'全网节点'} value={nodeCount ? nodeCount.toString() : '--'} />
           <InfoItem title={'节点身份'} value={isNode ? '是' : '否'} />
-          <InfoItem
-            title={'全网总分红'}
-            value={`${totalRewards ? totalRewards?.toSignificant(4, { groupSeparator: ',' }).toString() : '--'} USDT`}
-          />
+          <InfoItem title={'全网总分红'} value={`${totalRewards ? totalRewards?.toFixed(2).toString() : '--'} USDT`} />
           <InfoItem
             title={'每节点分红'}
-            value={`${rewardPer ? rewardPer?.toSignificant(4, { groupSeparator: ',' }).toString() : '--'} USDT`}
+            value={`${rewardPer ? rewardPer?.toFixed(2, { groupSeparator: ',' }).toString() : '--'} USDT`}
           />
           <InfoItem
             title={'已领取分红'}
-            value={`${
-              claimedRewards ? claimedRewards?.toSignificant(4, { groupSeparator: ',' }).toString() : '--'
-            } USDT`}
+            value={`${claimedRewards ? claimedRewards?.toFixed(2, { groupSeparator: ',' }).toString() : '--'} USDT`}
           />
           <InfoItem
             title={'可领取分红'}
-            value={`${rewards ? rewards?.toSignificant(4, { groupSeparator: ',' }).toString() : '--'} USDT`}
+            value={`${rewards ? rewards?.toFixed(2, { groupSeparator: ',' }).toString() : '--'} USDT`}
           />
         </Grid>
         <Button disabled={!rewards || rewards.equalTo('0')} onClick={claimCallback} sx={{ marginTop: 30 }}>

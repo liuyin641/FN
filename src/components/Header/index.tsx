@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { AppBar, Box, IconButton, MenuItem, styled as muiStyled, styled } from '@mui/material'
+import { AppBar, Box, MenuItem, styled as muiStyled, styled } from '@mui/material'
 import { ExternalLink } from 'theme/components'
 import Web3Status from './Web3Status'
 import { HideOnMobile, ShowOnMobile } from 'theme/index'
@@ -12,6 +12,7 @@ import Image from '../Image'
 import logo from '../../assets/images/logo.png'
 import logoText from '../../assets/images/logo-text.png'
 import { isMobile } from 'react-device-detect'
+import Lang from './Lang'
 
 interface TabContent {
   title: string
@@ -129,7 +130,7 @@ export default function Header() {
       <Filler />
       <StyledAppBar>
         <Box display="flex" alignItems="center">
-          <Image src={logo} width={isMobile ? 18 : 48} />
+          <Image src={logo} width={isMobile ? 18 : 40} />
           <Image style={{ marginLeft: 12 }} src={logoText} height={isMobile ? 10 : 25} />
           <MainLogo id={'logo'} to={'/'}></MainLogo>
           <HideOnMobile breakpoint="md">
@@ -223,25 +224,26 @@ export default function Header() {
           {/*<NetworkSelect />*/}
           <Web3Status />
           <ShowOnMobile breakpoint="md">
-            <IconButton
-              sx={{
-                border: '1px solid rgba(0, 0, 0, 0.1)',
-                height: { xs: 24, sm: 32 },
-                width: { xs: 24, sm: 32 },
-                mb: { xs: 0, sm: 15 },
-                mt: { xs: 0, sm: 8 },
-                padding: '4px',
-                borderRadius: '8px'
-              }}
-              onClick={() => {
-                setMobileMenuOpen(open => !open)
-              }}
-            >
-              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" stroke="#252525">
-                <path d="M1 1H13" strokeWidth="1.4" strokeLinecap="round" />
-                <path d="M1 7H13" strokeWidth="1.4" strokeLinecap="round" />
-              </svg>
-            </IconButton>
+            {/*<IconButton*/}
+            {/*  sx={{*/}
+            {/*    border: '1px solid rgba(0, 0, 0, 0.1)',*/}
+            {/*    height: { xs: 24, sm: 32 },*/}
+            {/*    width: { xs: 24, sm: 32 },*/}
+            {/*    mb: { xs: 0, sm: 15 },*/}
+            {/*    mt: { xs: 0, sm: 8 },*/}
+            {/*    padding: '4px',*/}
+            {/*    borderRadius: '8px'*/}
+            {/*  }}*/}
+            {/*  onClick={() => {*/}
+            {/*    setMobileMenuOpen(open => !open)*/}
+            {/*  }}*/}
+            {/*>*/}
+            {/*  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" stroke="#252525">*/}
+            {/*    <path d="M1 1H13" strokeWidth="1.4" strokeLinecap="round" />*/}
+            {/*    <path d="M1 7H13" strokeWidth="1.4" strokeLinecap="round" />*/}
+            {/*  </svg>*/}
+            {/*</IconButton>*/}
+            <Lang />
           </ShowOnMobile>
         </Box>
       </StyledAppBar>

@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { createI18n, I18nProvider } from 'react-simple-i18n'
 import { styled } from '@mui/material'
 import Header from '../components/Header'
 import Polling from '../components/essential/Polling'
@@ -11,6 +12,7 @@ import Footer from 'components/Footer'
 import Node from '../pages/node'
 import Earn from '../pages/earn'
 import Home from '../pages/home'
+import { langData } from '../langs/lang'
 
 const AppWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -50,29 +52,31 @@ const BodyWrapper = styled('div')(({ theme }) => ({
 export default function App() {
   return (
     <Suspense fallback={null}>
-      <ModalProvider>
-        <AppWrapper id="app">
-          <ContentWrapper>
-            <Header />
-            <BodyWrapper id="body">
-              <Popups />
-              <Polling />
-              <Web3ReactManager>
-                <Routes>
-                  <Route path="/earn" element={<Earn />} />
-                  <Route path="/earn/:inviter" element={<Earn />} />
-                  <Route path="/node/:inviter" element={<Node />} />
-                  <Route path="/node" element={<Node />} />
-                  <Route path="/home" element={<Home />} />
-                  <Route path="/sport" element={<ComingSoon />} />
-                  <Route path="/" element={<Home />} />
-                </Routes>
-              </Web3ReactManager>
-            </BodyWrapper>
-            <Footer />
-          </ContentWrapper>
-        </AppWrapper>
-      </ModalProvider>{' '}
+      <I18nProvider i18n={createI18n(langData, { lang: 'en' })}>
+        <ModalProvider>
+          <AppWrapper id="app">
+            <ContentWrapper>
+              <Header />
+              <BodyWrapper id="body">
+                <Popups />
+                <Polling />
+                <Web3ReactManager>
+                  <Routes>
+                    <Route path="/earn" element={<Earn />} />
+                    <Route path="/earn/:inviter" element={<Earn />} />
+                    <Route path="/node/:inviter" element={<Node />} />
+                    <Route path="/node" element={<Node />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/sport" element={<ComingSoon />} />
+                    <Route path="/" element={<Home />} />
+                  </Routes>
+                </Web3ReactManager>
+              </BodyWrapper>
+              <Footer />
+            </ContentWrapper>
+          </AppWrapper>
+        </ModalProvider>
+      </I18nProvider>
     </Suspense>
   )
 }

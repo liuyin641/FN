@@ -76,7 +76,7 @@ function EarnModal({
       <Stack mt={30} display="grid" padding="40px 24px" gap="24px" justifyItems="center">
         <NumericalInput
           unit="FN"
-          balance={fnBalance?.toExact()}
+          balance={fnBalance?.toFixed(2)}
           placeholder={''}
           endAdornment={<img alt="" style={{ width: 28, maxWidth: 'unset', marginRight: 12 }} src={usdtImg} />}
           value={typed}
