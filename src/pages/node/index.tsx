@@ -1,0 +1,216 @@
+import { Button, Grid, Stack, styled, Typography } from '@mui/material'
+import Image from '../../components/Image'
+import nodeBanner from '../../assets/images/node-banner.png'
+import Divider from '../../components/Divider'
+import { isMobile } from 'react-device-detect'
+import ActionButton from '../../components/Button/ActionButton'
+import usdtImg from '../../assets/images/usdt.png'
+import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
+import NumericalInput from 'components/Input/InputNumerical'
+import { useTokenBalance } from '../../state/wallet/hooks'
+import { useCallback } from 'react'
+import { useActiveWeb3React } from '../../hooks'
+import { TokenAmount } from '../../constants/token'
+import { tryParseAmount } from '../../utils/parseAmount'
+import { NODE_SALE_ADDRESS, USDT, ZERO_ADDRESS } from '../../constants'
+import { useBuy, useClaimNodeRewards, useIsNode, useNodeInfo, useNodeRewards } from '../../hooks/useNode'
+import TransactionSubmittedModal from 'components/Modal/TransactionModals/TransactiontionSubmittedModal'
+import MessageBox from 'components/Modal/TransactionModals/MessageBox'
+import useModal from '../../hooks/useModal'
+import TransactionPendingModal from 'components/Modal/TransactionModals/TransactionPendingModal'
+import { SmallButton } from '../../components/Button'
+import useCopyClipboard from '../../hooks/useCopyClipboard'
+import { useParams } from 'react-router-dom'
+import { shortenAddress, shortenText } from '../../utils'
+
+const Title = styled(Typography)`
+  font-size: 24px;
+  color: #643877;
+  text-align: center;
+  margin: 20px;
+`
+
+function InfoItem({ title, value }: { title: string; value: string }) {
+  return (
+    <Grid key={title} item xs={4}>
+      <Stack width={100}>
+        <Typography>{title}</Typography>
+        <Typography>{value}</Typography>
+      </Stack>
+    </Grid>
+  )
+}
+
+export default function Node() {
+  const params = useParams<{ inviter: string }>()
+  console.log('params', params)
+  const typed = '1000'
+  const [isCopied, setCopied] = useCopyClipboard()
+  const { showModal, hideModal } = useModal()
+  const { account, chainId } = useActiveWeb3React()
+  const { buy } = useBuy()
+  const { claim } = useClaimNodeRewards()
+
+  const usdtBalance = useTokenBalance(account ?? undefined, USDT[chainId ?? 56])
+  const inputAmount = tryParseAmount(typed, USDT[chainId ?? 56]) as TokenAmount | undefined
+  const [approvalState, approveCallback] = useApproveCallback(inputAmount, NODE_SALE_ADDRESS[chainId ?? 56])
+  const { isNode, nodeCount, subordinates, reward, inviter } = useNodeInfo()
+  const { totalRewards, rewardPer, rewards, claimedRewards } = useNodeRewards()
+  const enoughAsset = usdtBalance && inputAmount && usdtBalance.greaterThan(inputAmount)
+
+  const { ableNode } = useIsNode(params.inviter)
+
+  const buyCallback = useCallback(async () => {
+    if (!account) return
+    showModal(<TransactionPendingModal />)
+    buy(params?.inviter)
+      .then(() => {
+        hideModal()
+        showModal(<TransactionSubmittedModal />)
+      })
+      .catch((err: any) => {
+        console.log('err', err)
+        hideModal()
+        showModal(
+          <MessageBox type="error">{err.error && err.error.message ? err.error.message : err?.message}</MessageBox>
+        )
+        console.error(err)
+      })
+  }, [account, showModal, buy, params?.inviter, hideModal])
+
+  const claimCallback = useCallback(async () => {
+    if (!account) return
+    showModal(<TransactionPendingModal />)
+    claim()
+      .then(() => {
+        hideModal()
+        showModal(<TransactionSubmittedModal />)
+      })
+      .catch((err: any) => {
+        hideModal()
+        showModal(
+          <MessageBox type="error">{err.error && err.error.message ? err.error.message : err?.message}</MessageBox>
+        )
+        console.error(err)
+      })
+  }, [account, showModal, claim, hideModal])
+  console.log('tag--->', inviter, ableNode)
+  return (
+    <Stack maxWidth={isMobile ? '100%' : 540}>
+      <Image style={{ margin: isMobile ? 0 : 20 }} src={nodeBanner} />
+      <Stack
+        margin={20}
+        sx={{ background: '#F8F6FF', borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
+        border={'1px solid #DDDDDD'}
+        borderRadius={'20px'}
+      >
+        <Title>购买</Title>
+        <Divider />
+        <Stack padding={isMobile ? 20 : 30}>
+          <NumericalInput
+            style={{ marginBottom: 20 }}
+            unit="USDT"
+            balance={usdtBalance?.toExact()}
+            placeholder={''}
+            endAdornment={<img alt="" style={{ width: 28, maxWidth: 'unset', marginRight: 12 }} src={usdtImg} />}
+            value={typed}
+            height={60}
+          />
+          {params?.inviter && inviter === ZERO_ADDRESS && (
+            <Stack mb={8} direction={'row'} justifyContent={'space-between'}>
+              <Typography>上级地址:</Typography>
+              <Typography>{shortenAddress(params.inviter, 12)}</Typography>
+            </Stack>
+          )}
+          {(!inviter || inviter === ZERO_ADDRESS) && !ableNode ? (
+            <Typography fontSize={12} mb={8} color={'#FA0E0E'}>
+              链接未激活，请更换链接
+            </Typography>
+          ) : null}
+          <ActionButton
+            pendingText={'授权中'}
+            pending={approvalState === ApprovalState.PENDING}
+            disableAction={!usdtBalance || isNode || !enoughAsset}
+            actionText={
+              isNode
+                ? '已购买'
+                : !enoughAsset
+                ? '余额不足'
+                : approvalState === ApprovalState.NOT_APPROVED
+                ? '授权'
+                : '支付'
+            }
+            onAction={approvalState === ApprovalState.NOT_APPROVED ? approveCallback : buyCallback}
+          />
+        </Stack>
+      </Stack>
+
+      <Stack margin={20} borderRadius={'20px'} mt={30} sx={{ background: '#F8F6FF' }} border={'1px solid #DDDDDD'}>
+        <Title>节点推荐</Title>
+        <Divider />
+        <Stack padding={isMobile ? 20 : 30}>
+          <Stack spacing={12}>
+            <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+              <Typography>{shortenText(window.location.host + '/node/' + account, isMobile ? 6 : 12)}</Typography>
+              <SmallButton
+                disabled={isCopied}
+                onClick={() => {
+                  setCopied(window.location.host + '/node/' + account)
+                }}
+              >
+                {isCopied ? '已复制' : '复制连接'}
+              </SmallButton>
+            </Stack>
+            <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+              <Typography>推荐人数</Typography>
+              <Typography>{subordinates ? subordinates : '--'}</Typography>
+            </Stack>
+            <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+              <Typography>已获得奖励</Typography>
+              <Typography>{reward ? reward.toSignificant(4, { significantDigits: ',' }) : '--'} U</Typography>
+            </Stack>
+            <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+              <Typography>我的上级</Typography>
+              <Typography>{shortenAddress(inviter, 10)}</Typography>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Stack>
+
+      <Stack
+        margin={20}
+        borderRadius={'20px'}
+        mt={30}
+        sx={{ background: '#F8F6FF' }}
+        border={'1px solid #DDDDDD'}
+        padding={isMobile ? 20 : 30}
+      >
+        <Grid container rowSpacing={12}>
+          <InfoItem title={'全网节点'} value={nodeCount ? nodeCount.toString() : '--'} />
+          <InfoItem title={'节点身份'} value={isNode ? '是' : '否'} />
+          <InfoItem
+            title={'全网总分红'}
+            value={`${totalRewards ? totalRewards?.toSignificant(4, { groupSeparator: ',' }).toString() : '--'} USDT`}
+          />
+          <InfoItem
+            title={'每节点分红'}
+            value={`${rewardPer ? rewardPer?.toSignificant(4, { groupSeparator: ',' }).toString() : '--'} USDT`}
+          />
+          <InfoItem
+            title={'已领取分红'}
+            value={`${
+              claimedRewards ? claimedRewards?.toSignificant(4, { groupSeparator: ',' }).toString() : '--'
+            } USDT`}
+          />
+          <InfoItem
+            title={'可领取分红'}
+            value={`${rewards ? rewards?.toSignificant(4, { groupSeparator: ',' }).toString() : '--'} USDT`}
+          />
+        </Grid>
+        <Button disabled={!rewards || rewards.equalTo('0')} onClick={claimCallback} sx={{ marginTop: 30 }}>
+          领取分红
+        </Button>
+      </Stack>
+    </Stack>
+  )
+}
