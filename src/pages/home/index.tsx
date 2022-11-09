@@ -17,9 +17,12 @@ import rule from '../../assets/images/rule.png'
 import earn from '../../assets/images/earn.png'
 import lock from '../../assets/images/lock.png'
 import lockEN from '../../assets/images/lock-en.png'
+import twitter from '../../assets/socialLinksIcon/twitter.svg'
+import telegram from '../../assets/socialLinksIcon/telegram.svg'
 
 import { Stack, styled, Typography } from '@mui/material'
 import { useI18n } from 'react-simple-i18n'
+import { ExternalLink } from '../../theme/components'
 
 const TextBG = styled('div')`
   height: 8px;
@@ -93,6 +96,14 @@ export default function Home() {
           <Typography mt={20}>{t('home.text2')}</Typography>
           <Typography>{t('home.text3')}</Typography>
         </Stack>
+      </Stack>
+      <Stack pt={30} spacing={23} margin={'auto'} direction={'row'}>
+        <ExternalLink href={''}>
+          <Image width={28} src={telegram} />
+        </ExternalLink>
+        <ExternalLink href={''}>
+          <Image width={28} src={twitter} />
+        </ExternalLink>
       </Stack>
     </Stack>
   )
