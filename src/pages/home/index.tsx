@@ -75,7 +75,7 @@ export default function Home() {
           </Stack>
           <Image
             style={{ marginLeft: 30 }}
-            width={isMobile ? 80 : 160}
+            width={isMobile ? 80 : 180}
             height={'fit-content'}
             src={isEn ? percentEN : percent}
           />
