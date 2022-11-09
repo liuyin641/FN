@@ -25,6 +25,7 @@ import { shortenAddress, shortenText } from '../../utils'
 import useCopyClipboard from '../../hooks/useCopyClipboard'
 import JSBI from 'jsbi'
 import { useParams } from 'react-router-dom'
+import { useI18n } from 'react-simple-i18n'
 
 const Title = styled(Typography)`
   font-size: 24px;
@@ -43,6 +44,7 @@ function EarnModal({
   inviter: string | undefined
   customOnDismiss: () => void
 }) {
+  const { t } = useI18n()
   const { showModal, hideModal } = useModal()
   const { account, chainId } = useActiveWeb3React()
   const [typed, setTyped] = useState('')
@@ -72,7 +74,12 @@ function EarnModal({
   }, [account, inputAmount, showModal, earn, inviter, hideModal])
 
   return (
-    <Modal title={isLive ? '活期存币' : '定期存币'} background={'#F8F6FF'} closeIcon customOnDismiss={customOnDismiss}>
+    <Modal
+      title={isLive ? t('node.demandDepositL') : t('earn.fixedDeposit')}
+      background={'#F8F6FF'}
+      closeIcon
+      customOnDismiss={customOnDismiss}
+    >
       <Stack mt={30} display="grid" padding="40px 24px" gap="24px" justifyItems="center">
         <NumericalInput
           unit="FN"
@@ -95,12 +102,12 @@ function EarnModal({
           disableAction={!fnBalance || !inputAmount || !enoughAsset}
           actionText={
             approvalState === ApprovalState.NOT_APPROVED
-              ? '授权'
+              ? t('approve')
               : !inputAmount
-              ? '输入金额'
+              ? t('enter')
               : enoughAsset
-              ? '存入'
-              : '余额不足'
+              ? t('save')
+              : t('insufficient')
           }
           onAction={approvalState === ApprovalState.NOT_APPROVED ? approveCallback : earnCallback}
         />
@@ -120,6 +127,7 @@ export default function Earn() {
   const liveEarnInfo = useEarnInfo({ isLive: true })
   const { rewards, subordinatesL1, subordinatesL2, inviter } = useDealEarn()
   const { ableAddress } = useAbleEarnAddress(params.inviter)
+  const { t } = useI18n()
   const withCallback = useCallback(
     async (isLive: boolean) => {
       if (!account) return
@@ -169,15 +177,15 @@ export default function Earn() {
         sx={{ background: '#F8F6FF', borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
         border={'1px solid #DDDDDD'}
       >
-        <Title>活期</Title>
+        <Title>{t('earn.demand')}</Title>
         <Divider />
         <Stack padding={isMobile ? 20 : 30}>
           <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
             <Stack>
               <Typography fontSize={18} color={'#583A8A'}>
-                存FN
+                {t('node.s')}FN
               </Typography>
-              <Typography>奖励：FN</Typography>
+              <Typography>{t('node.claim')}：FN</Typography>
             </Stack>
             <Image width={40} src={fnImg} />
           </Stack>
@@ -185,20 +193,20 @@ export default function Earn() {
             <Typography fontSize={24} color={'#EBB15E'} textAlign={'center'}>
               0%
             </Typography>
-            <Typography textAlign={'center'}>年化收益率</Typography>
+            <Typography textAlign={'center'}>{t('node.tvl')}</Typography>
           </Stack>
 
           <Stack>
-            <Typography>我的资金</Typography>
+            <Typography>{t('balance')}</Typography>
             <Typography>
-              {liveEarnInfo?.balance ? liveEarnInfo.balance.toSignificant(4, { groupSeparator: ',' }) : '--'}
+              {liveEarnInfo?.balance ? liveEarnInfo.balance.toFixed(2, { groupSeparator: ',' }) : '--'}
             </Typography>
           </Stack>
           <Stack mt={20} direction={'row'} justifyContent={'space-between'}>
             <Stack>
-              <Typography>奖励</Typography>
+              <Typography>{t('rewards')}</Typography>
               <Typography>
-                {liveEarnInfo?.rewards ? liveEarnInfo.rewards.toSignificant(4, { groupSeparator: ',' }) : '--'}
+                {liveEarnInfo?.rewards ? liveEarnInfo.rewards.toFixed(2, { groupSeparator: ',' }) : '--'}
               </Typography>
             </Stack>
             <SmallButton
@@ -207,7 +215,7 @@ export default function Earn() {
                 claimCallback(true)
               }}
             >
-              领取
+              {t('claim')}
             </SmallButton>
           </Stack>
           <Stack mt={20} spacing={12} direction={'row'}>
@@ -216,31 +224,30 @@ export default function Earn() {
                 showModal(<EarnModal customOnDismiss={hideModal} isLive={true} inviter={params.inviter} />)
               }}
             >
-              存币
+              {t('node.saveToken')}
             </Button>
             <Button
               disabled={!liveEarnInfo?.balance || liveEarnInfo?.balance.equalTo('0')}
-              sx={{ background: '#A1A1A1' }}
               onClick={() => {
                 withCallback(true)
               }}
             >
-              撤出
+              {t('withdraw')}
             </Button>
           </Stack>
         </Stack>
       </Stack>
 
       <Stack margin={20} borderRadius={'20px'} sx={{ background: '#F8F6FF' }} border={'1px solid #DDDDDD'}>
-        <Title>定期</Title>
+        <Title>{t('fixed')}</Title>
         <Divider />
         <Stack padding={isMobile ? 20 : 30}>
           <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
             <Stack>
               <Typography fontSize={18} color={'#583A8A'}>
-                存FN
+                {t('earn.s')}FN
               </Typography>
-              <Typography>奖励：FN</Typography>
+              <Typography>{t('earn.claim')}：FN</Typography>
             </Stack>
             <Image width={40} src={fnImg} />
           </Stack>
@@ -248,20 +255,20 @@ export default function Earn() {
             <Typography fontSize={24} color={'#EBB15E'} textAlign={'center'}>
               0%
             </Typography>
-            <Typography textAlign={'center'}>年化收益率</Typography>
+            <Typography textAlign={'center'}>{t('earn.tvl')}</Typography>
           </Stack>
 
           <Stack>
-            <Typography>我的资金</Typography>
+            <Typography>{t('balance')}</Typography>
             <Typography>
-              {earnInfo?.balance ? earnInfo.balance.toSignificant(4, { groupSeparator: ',' }).toString() : '--'}
+              {earnInfo?.balance ? earnInfo.balance.toFixed(2, { groupSeparator: ',' }).toString() : '--'}
             </Typography>
           </Stack>
           <Stack mt={20} direction={'row'} justifyContent={'space-between'}>
             <Stack>
-              <Typography>奖励</Typography>
+              <Typography>{t('rewards')}</Typography>
               <Typography>
-                {earnInfo?.rewards ? earnInfo.rewards.toSignificant(4, { groupSeparator: ',' }).toString() : '--'}
+                {earnInfo?.rewards ? earnInfo.rewards.toFixed(2, { groupSeparator: ',' }).toString() : '--'}
               </Typography>
             </Stack>
             <SmallButton
@@ -270,18 +277,18 @@ export default function Earn() {
                 claimCallback(false)
               }}
             >
-              领取
+              {t('claim')}
             </SmallButton>
           </Stack>
           {params?.inviter && inviter === ZERO_ADDRESS && (
             <Stack direction={'row'} justifyContent={'space-between'}>
-              <Typography>上级地址:</Typography>
+              <Typography>{t('bind')}:</Typography>
               <Typography mb={8}>{shortenAddress(params.inviter, 12)}</Typography>
             </Stack>
           )}
           {inviter === ZERO_ADDRESS && !ableAddress && (
             <Typography fontSize={12} mb={2} color={'#FA0E0E'}>
-              链接未激活，请更换链接
+              {t('unableAddress')}
             </Typography>
           )}
           <Stack mt={20} spacing={12} direction={'row'}>
@@ -291,23 +298,22 @@ export default function Earn() {
                 showModal(<EarnModal customOnDismiss={hideModal} isLive={false} inviter={params.inviter} />)
               }}
             >
-              存币
+              {t('earn.saveToken')}
             </Button>
             <Button
               disabled={!earnInfo?.balance || earnInfo?.balance.equalTo('0')}
-              sx={{ background: '#A1A1A1' }}
               onClick={() => {
                 withCallback(false)
               }}
             >
-              撤出
+              {t('withdraw')}
             </Button>
           </Stack>
         </Stack>
       </Stack>
 
       <Stack margin={20} borderRadius={'20px'} sx={{ background: '#F8F6FF' }} border={'1px solid #DDDDDD'}>
-        <Title>节点推荐</Title>
+        <Title>{t('earn.invite')}</Title>
         <Divider />
         <Stack padding={isMobile ? 20 : 30}>
           <Stack spacing={12}>
@@ -319,11 +325,11 @@ export default function Earn() {
                   setCopied(window.location.host + '/earn/' + account)
                 }}
               >
-                {isCopied ? '已复制' : '复制连接'}
+                {isCopied ? t('copied') : t('copy')}
               </SmallButton>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>推荐人数</Typography>
+              <Typography>{t('inviteNum')}</Typography>
               <Typography>
                 {subordinatesL1 && subordinatesL2
                   ? JSBI.ADD(JSBI.BigInt(subordinatesL1), JSBI.BigInt(subordinatesL2)).toString()
@@ -331,11 +337,11 @@ export default function Earn() {
               </Typography>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>已获得奖励</Typography>
-              <Typography>{rewards ? rewards.toSignificant(4, { groupSeparator: ',' }) : '--'}</Typography>
+              <Typography>{t('earn.myRewards')}</Typography>
+              <Typography>{rewards ? rewards.toFixed(2, { groupSeparator: ',' }) : '--'}</Typography>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>我的上级</Typography>
+              <Typography>{t('bind')}</Typography>
               <Typography>{shortenAddress(inviter, 8)}</Typography>
             </Stack>
           </Stack>

@@ -8,6 +8,7 @@ import { TransactionResponse } from '@ethersproject/providers'
 import { FIRST_ADDRESS, ZERO_ADDRESS } from '../constants'
 import { CurrencyAmount } from '../constants/token'
 import JSBI from 'jsbi'
+import { useI18n } from 'react-simple-i18n'
 
 export function useNodeInfo() {
   const { account } = useActiveWeb3React()
@@ -102,6 +103,7 @@ export function useBuy() {
   const addTransaction = useTransactionAdder()
   const contract = useNodeContract()
   const { account } = useActiveWeb3React()
+  const { t } = useI18n()
   const buy = useCallback(
     async (inviter: string | undefined) => {
       if (!account) throw new Error('none account')
@@ -116,7 +118,7 @@ export function useBuy() {
           from: account
         }).then((response: TransactionResponse) => {
           addTransaction(response, {
-            summary: `使用1000u购买1个节点`
+            summary: t('buy')
           })
           return response.hash
         })
@@ -131,6 +133,7 @@ export function useBuy() {
 }
 
 export function useEarn({ isLive }: { isLive: boolean }) {
+  const { t } = useI18n()
   const addTransaction = useTransactionAdder()
   const contract = useEarnContract({ isLive })
   const { account } = useActiveWeb3React()
@@ -151,7 +154,7 @@ export function useEarn({ isLive }: { isLive: boolean }) {
           from: account
         }).then((response: TransactionResponse) => {
           addTransaction(response, {
-            summary: `存入${amount.toSignificant(4, { groupSeparator: ',' })}`
+            summary: `${t('save')}${amount.toSignificant(6, { groupSeparator: ',' })}`
           })
           return response.hash
         })
@@ -170,6 +173,7 @@ export function useWithdraw() {
   const dealContract = useEarnContract({ isLive: true })
   const liveContract = useEarnContract({ isLive: false })
   const { account } = useActiveWeb3React()
+  const { t } = useI18n()
   const withdraw = useCallback(
     async (isLive: boolean) => {
       const contract = isLive ? liveContract : dealContract
@@ -177,20 +181,21 @@ export function useWithdraw() {
       if (!contract) throw new Error('none contract')
       const method = 'withdraw'
       console.log('🚀 ~ file: useBuyBong.ts ~ line 18 ~ args', method)
-      return contract.estimateGas[method]({ from: account }).then(estimatedGasLimit => {
+      return contract.estimateGas[method]({ from: account, value: '3000000000000000' }).then(estimatedGasLimit => {
         return contract[method]({
           gasLimit: calculateGasMargin(estimatedGasLimit),
           // gasLimit: '3500000',
-          from: account
+          from: account,
+          value: '3000000000000000'
         }).then((response: TransactionResponse) => {
           addTransaction(response, {
-            summary: `撤出`
+            summary: t('withdraw')
           })
           return response.hash
         })
       })
     },
-    [account, addTransaction, dealContract, liveContract]
+    [account, addTransaction, dealContract, liveContract, t]
   )
 
   return {
@@ -203,6 +208,7 @@ export function useClaim() {
   const dealContract = useEarnContract({ isLive: false })
   const liveContract = useEarnContract({ isLive: true })
   const { account } = useActiveWeb3React()
+  const { t } = useI18n()
   const claim = useCallback(
     async (isLive: boolean) => {
       const contract = isLive ? liveContract : dealContract
@@ -218,7 +224,7 @@ export function useClaim() {
           value: '3000000000000000'
         }).then((response: TransactionResponse) => {
           addTransaction(response, {
-            summary: `领取`
+            summary: t('claim')
           })
           return response.hash
         })
@@ -236,6 +242,7 @@ export function useClaimNodeRewards() {
   const addTransaction = useTransactionAdder()
   const contract = useNodeRewardsContract()
   const { account } = useActiveWeb3React()
+  const { t } = useI18n()
   const claim = useCallback(async () => {
     if (!account) throw new Error('none account')
     if (!contract) throw new Error('none contract')
@@ -248,7 +255,7 @@ export function useClaimNodeRewards() {
         from: account
       }).then((response: TransactionResponse) => {
         addTransaction(response, {
-          summary: `领取节点奖励`
+          summary: t('claim')
         })
         return response.hash
       })

@@ -38,7 +38,7 @@ export default function Lang() {
                 i18n.setLang('cn')
               }}
             >
-              英文
+              English
             </LangItem>
           </Stack>
         }

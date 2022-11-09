@@ -13,6 +13,7 @@ import logo from '../../assets/images/logo.png'
 import logoText from '../../assets/images/logo-text.png'
 import { isMobile } from 'react-device-detect'
 import Lang from './Lang'
+import { useI18n } from 'react-simple-i18n'
 
 interface TabContent {
   title: string
@@ -21,15 +22,9 @@ interface TabContent {
   titleContent?: JSX.Element
 }
 
-interface Tab extends TabContent {
+export interface Tab extends TabContent {
   subTab?: TabContent[]
 }
-
-export const Tabs: Tab[] = [
-  { title: '首页', route: routes.Home },
-  { title: '节点', route: routes.Node },
-  { title: '赚币', route: routes.Earn }
-]
 
 const navLinkSX = ({ theme }: any) => ({
   textDecoration: 'none',
@@ -117,6 +112,13 @@ const LinksWrapper = muiStyled('div')(({ theme }) => ({
 }))
 
 export default function Header() {
+  const { t } = useI18n()
+  const Tabs: Tab[] = [
+    { title: t('home.title'), route: routes.Home },
+    { title: t('node.title'), route: routes.Node },
+    { title: t('earn.title'), route: routes.Earn },
+    { title: t('sport.title'), route: routes.Sport }
+  ]
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { pathname } = useLocation()
 

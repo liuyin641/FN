@@ -7,7 +7,9 @@ import ChainSwap from '../../assets/svg/chain_swap.svg'
 import { ExternalLink } from 'theme/components'
 import { ShowOnMobile } from 'theme/index'
 import Image from 'components/Image'
-import { Tabs } from './'
+import { useI18n } from 'react-simple-i18n'
+import { routes } from '../../constants/routes'
+import { Tab } from './'
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'relative',
@@ -51,6 +53,13 @@ const navLinkSx = {
 } as const
 
 export default function MobileHeader() {
+  const { t } = useI18n()
+  const Tabs: Tab[] = [
+    { title: t('home.title'), route: routes.Home },
+    { title: t('node.title'), route: routes.Node },
+    { title: t('earn.title'), route: routes.Earn },
+    { title: t('sport.title'), route: routes.Sport }
+  ]
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClick = useCallback(() => {
