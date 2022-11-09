@@ -4,7 +4,6 @@ import earnBanner from '../../assets/images/earn-banner.png'
 import Divider from '../../components/Divider'
 import { isMobile } from 'react-device-detect'
 import ActionButton from '../../components/Button/ActionButton'
-import usdtImg from '../../assets/images/usdt.png'
 import fnImg from '../../assets/images/fn.png'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import NumericalInput from 'components/Input/InputNumerical'
@@ -85,7 +84,7 @@ function EarnModal({
           unit="FN"
           balance={fnBalance?.toFixed(2)}
           placeholder={''}
-          endAdornment={<img alt="" style={{ width: 28, maxWidth: 'unset', marginRight: 12 }} src={usdtImg} />}
+          endAdornment={<img alt="" style={{ width: 28, maxWidth: 'unset', marginRight: 12 }} src={fnImg} />}
           value={typed}
           height={60}
           onChange={e => {
