@@ -26,7 +26,7 @@ const TextBG = styled('div')`
   width: 100%;
   background: linear-gradient(84deg, #7d2750 0%, #3b5b8f 100%);
   position: absolute;
-  margin-top: 14px;
+  margin-top: 22px;
   border-radius: 3px;
   opacity: 0.6;
 `

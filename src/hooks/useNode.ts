@@ -193,12 +193,11 @@ export function useWithdraw() {
       if (!contract) throw new Error('none contract')
       const method = 'withdraw'
       console.log('🚀 ~ file: useBuyBong.ts ~ line 18 ~ args', method)
-      return contract.estimateGas[method]({ from: account, value: '3000000000000000' }).then(estimatedGasLimit => {
+      return contract.estimateGas[method]({ from: account }).then(estimatedGasLimit => {
         return contract[method]({
           gasLimit: calculateGasMargin(estimatedGasLimit),
           // gasLimit: '3500000',
-          from: account,
-          value: '3000000000000000'
+          from: account
         }).then((response: TransactionResponse) => {
           addTransaction(response, {
             summary: t('withdraw')
