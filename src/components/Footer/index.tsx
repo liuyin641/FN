@@ -31,7 +31,7 @@ export default function Footer() {
   const Tabs: TabContent[] = [
     { title: t('home.title'), icon: home, router: './home' },
     { title: t('node.title'), icon: node, router: './node' },
-    { title: t('farm.title'), icon: earn, router: './earn' },
+    { title: t('earn.title'), icon: earn, router: './earn' },
     { title: t('sport.title'), icon: sport, router: './sport' }
   ]
   return (
