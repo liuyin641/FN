@@ -136,7 +136,8 @@ export const override: any = {
   },
   MuiButton: {
     defaultProps: {
-      variant: 'contained'
+      variant: 'contained',
+      fontWeight: 500,
     },
     styleOverrides: {
       root: {
@@ -151,6 +152,7 @@ export const override: any = {
         fontWeight: 500
       },
       contained: {
+        fontWeight: 500,
         background: 'linear-gradient(0deg, #7F3C8A 0%, #404384 99%)',
         color: '#ffffff',
         fontSize: 14,
@@ -166,6 +168,7 @@ export const override: any = {
         }
       },
       containedSecondary: {
+        fontWeight: 500,
         backgroundColor: theme.palette.secondary.main,
         color: '#ffffff',
         boxShadow: 'unset',
@@ -233,6 +236,7 @@ export const override: any = {
   MuiTypography: {
     styleOverrides: {
       root: {
+        fontWeight: 500,
         lineHeight: 1.2,
         fontFamily: 'Roboto, -apple-system, BlinkMacSystemFont, sans-serif!important'
       },
