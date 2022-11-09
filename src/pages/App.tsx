@@ -52,7 +52,7 @@ const BodyWrapper = styled('div')(({ theme }) => ({
 export default function App() {
   return (
     <Suspense fallback={null}>
-      <I18nProvider i18n={createI18n(langData, { lang: 'en' })}>
+      <I18nProvider i18n={createI18n(langData, { lang: 'cn' })}>
         <ModalProvider>
           <AppWrapper id="app">
             <ContentWrapper>
