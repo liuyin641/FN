@@ -30,13 +30,14 @@ const Title = styled(Typography)`
   color: #643877;
   text-align: center;
   margin: 20px;
+  font-weight: 500;
 `
 
 function InfoItem({ title, value }: { title: string; value: string }) {
   return (
     <Grid key={title} item xs={4}>
       <Stack width={100} spacing={8}>
-        <Typography>{title}</Typography>
+        <Typography fontWeight={500}>{title}</Typography>
         <Typography fontSize={12}>{value}</Typography>
       </Stack>
     </Grid>
@@ -167,15 +168,15 @@ export default function Node() {
               </SmallButton>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>{t('inviteNum')}</Typography>
+              <Typography fontWeight={500}>{t('inviteNum')}</Typography>
               <Typography>{subordinates ? subordinates : '--'}</Typography>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>{t('node.rewards')}</Typography>
+              <Typography fontWeight={500}>{t('node.rewards')}</Typography>
               <Typography>{reward ? reward.toSignificant(4, { significantDigits: ',' }) : '--'} U</Typography>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>{t('bind')}</Typography>
+              <Typography fontWeight={500}>{t('bind')}</Typography>
               <Typography>{shortenAddress(inviter, 10)}</Typography>
             </Stack>
           </Stack>

@@ -207,14 +207,14 @@ export default function Earn() {
           </Stack>
 
           <Stack>
-            <Typography>{t('balance')}</Typography>
+            <Typography fontWeight={500}>{t('balance')}</Typography>
             <Typography>
               {liveEarnInfo?.balance ? liveEarnInfo.balance.toFixed(2, { groupSeparator: ',' }) : '--'}
             </Typography>
           </Stack>
           <Stack mt={20} direction={'row'} justifyContent={'space-between'}>
             <Stack>
-              <Typography>{t('rewards')}</Typography>
+              <Typography fontWeight={500}>{t('rewards')}</Typography>
               <Typography>
                 {liveEarnInfo?.rewards ? liveEarnInfo.rewards.toFixed(2, { groupSeparator: ',' }) : '--'}
               </Typography>
@@ -287,14 +287,14 @@ export default function Earn() {
           </Stack>
 
           <Stack>
-            <Typography>{t('balance')}</Typography>
+            <Typography fontWeight={500}>{t('balance')}</Typography>
             <Typography>
               {earnInfo?.balance ? earnInfo.balance.toFixed(2, { groupSeparator: ',' }).toString() : '--'}
             </Typography>
           </Stack>
           <Stack mt={20} mb={20} direction={'row'} justifyContent={'space-between'}>
             <Stack>
-              <Typography>{t('rewards')}</Typography>
+              <Typography fontWeight={500}>{t('rewards')}</Typography>
               <Typography>
                 {earnInfo?.rewards ? earnInfo.rewards.toFixed(2, { groupSeparator: ',' }).toString() : '--'}
               </Typography>
@@ -379,7 +379,7 @@ export default function Earn() {
               </SmallButton>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>{t('inviteNum')}</Typography>
+              <Typography fontWeight={500}>{t('inviteNum')}</Typography>
               <Typography>
                 {subordinatesL1 && subordinatesL2
                   ? JSBI.ADD(JSBI.BigInt(subordinatesL1), JSBI.BigInt(subordinatesL2)).toString()
@@ -387,11 +387,11 @@ export default function Earn() {
               </Typography>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>{t('earn.myRewards')}</Typography>
+              <Typography fontWeight={500}>{t('earn.myRewards')}</Typography>
               <Typography>{rewards ? rewards.toFixed(2, { groupSeparator: ',' }) : '--'}</Typography>
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>{t('bind')}</Typography>
+              <Typography fontWeight={500}>{t('bind')}</Typography>
               <Typography>{shortenAddress(inviter, 8)}</Typography>
             </Stack>
           </Stack>

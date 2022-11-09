@@ -85,7 +85,7 @@ export function useEarnInfo({ isLive }: { isLive: boolean }) {
       balance: balanceRes?.result ? CurrencyAmount.ether(balanceRes?.result?.[0].toString()) : undefined,
       rewards: rewardRes?.result ? CurrencyAmount.ether(rewardRes?.result?.[0].toString()) : undefined,
       apy:
-        totalSupplyRes?.result && rewardInfoRes?.result
+        totalSupplyRes?.result && rewardInfoRes?.result && totalSupplyRes?.result?.[0].toString() !== '0'
           ? JSBI.divide(
               JSBI.multiply(
                 JSBI.BigInt('1051200000'),
