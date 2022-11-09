@@ -137,7 +137,7 @@ export const override: any = {
   MuiButton: {
     defaultProps: {
       variant: 'contained',
-      fontWeight: 500,
+      fontWeight: 500
     },
     styleOverrides: {
       root: {
