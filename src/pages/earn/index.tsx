@@ -49,7 +49,11 @@ function EarnModal({
   const [typed, setTyped] = useState('')
   const fnBalance = useTokenBalance(account ?? undefined, FN[chainId ?? 56])
   const inputAmount = tryParseAmount(typed, FN[chainId ?? 56]) as TokenAmount | undefined
+  const minAmount = tryParseAmount('10000', FN[chainId ?? 56]) as TokenAmount | undefined
+
   const enoughAsset = fnBalance && inputAmount && fnBalance.greaterThan(inputAmount)
+  const minAsset = inputAmount && minAmount && minAmount.greaterThan(inputAmount)
+  console.log('tag-->', minAmount?.raw.toString(), inputAmount?.raw.toString())
   const [approvalState, approveCallback] = useApproveCallback(
     inputAmount,
     isLive ? LIVE_EARN_ADDRESS[chainId ?? 56] : EARN_ADDRESS[chainId ?? 56]
@@ -98,7 +102,7 @@ function EarnModal({
         />
         <ActionButton
           pending={approvalState === ApprovalState.PENDING}
-          disableAction={!fnBalance || !inputAmount || !enoughAsset}
+          disableAction={!fnBalance || !inputAmount || !enoughAsset || (!isLive && minAsset)}
           actionText={
             approvalState === ApprovalState.NOT_APPROVED
               ? t('approve')

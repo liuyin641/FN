@@ -230,7 +230,7 @@ export function useClaim() {
         })
       })
     },
-    [account, addTransaction, dealContract, liveContract]
+    [account, addTransaction, dealContract, liveContract, t]
   )
 
   return {
@@ -260,7 +260,7 @@ export function useClaimNodeRewards() {
         return response.hash
       })
     })
-  }, [account, addTransaction, contract])
+  }, [account, addTransaction, contract, t])
 
   return {
     claim
