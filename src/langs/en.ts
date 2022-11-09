@@ -55,7 +55,7 @@ export const en = {
     save: 'Save',
     s: 'Save',
     claim: 'Claim',
-    tvl: 'TVL',
+    tvl: 'APY',
     saveToken: 'Stake',
     invite: 'Invite node',
     myRewards: 'Rewards'

@@ -46,7 +46,7 @@ export const cn = {
     claim: '领取分红'
   },
   earn: {
-    title: 'farm',
+    title: '赚币',
     fixed: '定期',
     fixedDeposit: '定期存款',
     demand: '活期',
@@ -61,6 +61,6 @@ export const cn = {
     minAmount: '最低存币10000 FN'
   },
   sport: {
-    title: 'sport'
+    title: '体育'
   }
 }

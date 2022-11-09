@@ -242,7 +242,7 @@ export default function Earn() {
       </Stack>
 
       <Stack margin={20} borderRadius={'20px'} sx={{ background: '#F8F6FF' }} border={'1px solid #DDDDDD'}>
-        <Title>{t('fixed')}</Title>
+        <Title>{t('earn.fixed')}</Title>
         <Divider />
         <Stack padding={isMobile ? 20 : 30}>
           <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
