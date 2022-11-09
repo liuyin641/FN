@@ -124,7 +124,7 @@ export function useBuy() {
         })
       })
     },
-    [account, addTransaction, contract]
+    [account, addTransaction, contract, t]
   )
 
   return {
@@ -160,7 +160,7 @@ export function useEarn({ isLive }: { isLive: boolean }) {
         })
       })
     },
-    [account, addTransaction, contract, isLive]
+    [account, addTransaction, contract, isLive, t]
   )
 
   return {
@@ -170,8 +170,8 @@ export function useEarn({ isLive }: { isLive: boolean }) {
 
 export function useWithdraw() {
   const addTransaction = useTransactionAdder()
-  const dealContract = useEarnContract({ isLive: true })
-  const liveContract = useEarnContract({ isLive: false })
+  const dealContract = useEarnContract({ isLive: false })
+  const liveContract = useEarnContract({ isLive: true })
   const { account } = useActiveWeb3React()
   const { t } = useI18n()
   const withdraw = useCallback(

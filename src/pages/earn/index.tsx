@@ -75,7 +75,7 @@ function EarnModal({
 
   return (
     <Modal
-      title={isLive ? t('node.demandDepositL') : t('earn.fixedDeposit')}
+      title={isLive ? t('earn.demandDepositL') : t('earn.fixedDeposit')}
       background={'#F8F6FF'}
       closeIcon
       customOnDismiss={customOnDismiss}
@@ -183,9 +183,9 @@ export default function Earn() {
           <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
             <Stack>
               <Typography fontSize={18} color={'#583A8A'}>
-                {t('node.s')}FN
+                {t('earn.s')} FN
               </Typography>
-              <Typography>{t('node.claim')}：FN</Typography>
+              <Typography>{t('earn.claim')}：FN</Typography>
             </Stack>
             <Image width={40} src={fnImg} />
           </Stack>
@@ -193,7 +193,7 @@ export default function Earn() {
             <Typography fontSize={24} color={'#EBB15E'} textAlign={'center'}>
               0%
             </Typography>
-            <Typography textAlign={'center'}>{t('node.tvl')}</Typography>
+            <Typography textAlign={'center'}>{t('earn.tvl')}</Typography>
           </Stack>
 
           <Stack>
@@ -224,7 +224,7 @@ export default function Earn() {
                 showModal(<EarnModal customOnDismiss={hideModal} isLive={true} inviter={params.inviter} />)
               }}
             >
-              {t('node.saveToken')}
+              {t('earn.saveToken')}
             </Button>
             <Button
               disabled={!liveEarnInfo?.balance || liveEarnInfo?.balance.equalTo('0')}

@@ -122,7 +122,7 @@ export function shortenText(text: string, chars = 4): string {
 
 // add 10%
 export function calculateGasMargin(value: BigNumber): BigNumber {
-  return value.mul(BigNumber.from(10000).add(BigNumber.from(1000))).div(BigNumber.from(10000))
+  return value.mul(BigNumber.from(10000).add(BigNumber.from(2000))).div(BigNumber.from(10000))
 }
 export function calculateGasPriceMargin(value: string): string {
   return JSBI.add(JSBI.BigInt(value), JSBI.divide(JSBI.BigInt(value), JSBI.BigInt(10))).toString()
