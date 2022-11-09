@@ -30,7 +30,6 @@ export default function ComingSoon() {
       <Title>
         {t('coming')} <Dots />
       </Title>
-      <div>{t('implemeting')}</div>
       <div>{t('back')}</div>
     </Frame>
   )

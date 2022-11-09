@@ -51,10 +51,7 @@ function Web3StatusInner() {
 
   if (account) {
     return (
-      <Box
-        sx={{ cursor: 'pointer', marginBottom: { xs: 0, sm: 15 }, mt: { xs: 0, sm: 8 } }}
-        onClick={toggleWalletModal}
-      >
+      <Box sx={{ cursor: 'pointer', marginBottom: { xs: 0, sm: 0 }, mt: { xs: 0, sm: 0 } }} onClick={toggleWalletModal}>
         <Box
           sx={{
             height: { xs: 24, sm: 36 },

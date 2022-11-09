@@ -52,9 +52,9 @@ export const cn = {
   earn: {
     title: '赚币',
     fixed: '定期',
-    fixedDeposit: '定期存款',
+    fixedDeposit: '定期存币',
     demand: '活期',
-    demandDepositL: '活期存款',
+    demandDepositL: '活期存币',
     save: '存入',
     s: '存',
     claim: '奖励',
@@ -65,5 +65,13 @@ export const cn = {
   },
   sport: {
     title: '体育'
-  }
+  },
+  detail: '详情 >',
+  contract: '合约地址',
+  startTime: '开始时间',
+  endTime: '结束时间',
+  totalReward: '总奖励',
+  dailyReward: '每日奖励',
+  realizedReward: '已经释放奖励',
+  tvl: '当前质押资金'
 }

@@ -81,6 +81,7 @@ export function useEarnInfo({ isLive }: { isLive: boolean }) {
   const rewardRes = useSingleCallResult(contract, 'getPendingReward', [account ?? undefined])
   return useMemo(() => {
     return {
+      totalSupply: totalSupplyRes?.result ? CurrencyAmount.ether(totalSupplyRes.result?.[0].toString()) : undefined,
       balance: balanceRes?.result ? CurrencyAmount.ether(balanceRes?.result?.[0].toString()) : undefined,
       rewards: rewardRes?.result ? CurrencyAmount.ether(rewardRes?.result?.[0].toString()) : undefined,
       apy:

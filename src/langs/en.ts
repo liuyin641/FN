@@ -65,5 +65,13 @@ export const en = {
   },
   sport: {
     title: 'sport'
-  }
+  },
+  detail: 'Detail >',
+  contract: 'Contract',
+  startTime: 'Start Time',
+  endTime: 'End Time',
+  totalReward: 'Total Reward',
+  dailyReward: 'Daily Reward',
+  realizedReward: 'Realized Reward',
+  tvl: 'TVL'
 }

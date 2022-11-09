@@ -26,6 +26,8 @@ import useCopyClipboard from '../../hooks/useCopyClipboard'
 import JSBI from 'jsbi'
 import { useParams } from 'react-router-dom'
 import { useI18n } from 'react-simple-i18n'
+import DetailModal from '../../components/Modal/DetailModals'
+import { useBlockNumber } from '../../state/application/hooks'
 
 const Title = styled(Typography)`
   font-size: 24px;
@@ -122,7 +124,7 @@ function EarnModal({
 export default function Earn() {
   const params = useParams<{ inviter: string }>()
   const [isCopied, setCopied] = useCopyClipboard()
-  const { account } = useActiveWeb3React()
+  const { account, chainId } = useActiveWeb3React()
   const { showModal, hideModal } = useModal()
   const { withdraw } = useWithdraw()
   const { claim } = useClaim()
@@ -172,6 +174,9 @@ export default function Earn() {
     },
     [account, showModal, claim, hideModal]
   )
+
+  const blockNumber = useBlockNumber()
+  console.log('blockNumber', blockNumber)
 
   return (
     <Stack maxWidth={isMobile ? '100%' : 540}>
@@ -240,6 +245,24 @@ export default function Earn() {
               {t('withdraw')}
             </Button>
           </Stack>
+          {!!liveEarnInfo?.totalSupply && (
+            <Typography
+              mt={20}
+              style={{ cursor: 'pointer' }}
+              textAlign={'center'}
+              onClick={() => {
+                showModal(
+                  <DetailModal
+                    address={LIVE_EARN_ADDRESS[chainId ?? 56]}
+                    totalRewards={'500万 FN '}
+                    dayRewards={'13698.63 FN'}
+                    rewards={blockNumber ? (0.47564688 * (blockNumber - 10000000)).toFixed(2).toString() : '--'}
+                    totalSupply={liveEarnInfo?.totalSupply?.toFixed(2).toString()}
+                  />
+                )
+              }}
+            >{`详情 >`}</Typography>
+          )}
         </Stack>
       </Stack>
 
@@ -314,6 +337,26 @@ export default function Earn() {
               {t('withdraw')}
             </Button>
           </Stack>
+          {!!earnInfo?.totalSupply && (
+            <Typography
+              mt={20}
+              style={{ cursor: 'pointer' }}
+              textAlign={'center'}
+              onClick={() => {
+                showModal(
+                  <DetailModal
+                    address={LIVE_EARN_ADDRESS[chainId ?? 56]}
+                    totalRewards={'1500万'}
+                    dayRewards={'41095.89'}
+                    rewards={blockNumber ? (1.42694064 * (blockNumber - 10000000)).toFixed(2).toString() : '--'}
+                    totalSupply={earnInfo?.totalSupply?.toFixed(2).toString()}
+                  />
+                )
+              }}
+            >
+              {t('detail')}
+            </Typography>
+          )}
         </Stack>
       </Stack>
 
