@@ -73,5 +73,6 @@ export const en = {
   totalReward: 'Total Reward',
   dailyReward: 'Daily Reward',
   realizedReward: 'Realized Reward',
-  tvl: 'TVL'
+  tvl: 'TVL',
+  force: 'Force withdraw'
 }

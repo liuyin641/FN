@@ -73,5 +73,6 @@ export const cn = {
   totalReward: '总奖励',
   dailyReward: '每日奖励',
   realizedReward: '已经释放奖励',
-  tvl: '当前质押资金'
+  tvl: '当前质押资金',
+  force: '强制撤出'
 }

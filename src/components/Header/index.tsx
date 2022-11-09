@@ -199,6 +199,7 @@ export default function Header() {
                   </ExternalLink>
                 ) : (
                   <Link
+                    style={{ fontWeight: 500 }}
                     key={title + idx}
                     id={`${route}-nav-link`}
                     to={route ?? ''}

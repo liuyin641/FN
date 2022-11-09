@@ -53,27 +53,27 @@ export default function Home() {
           <Stack spacing={8}>
             <Stack spacing={4} alignItems={'center'} direction={'row'}>
               <Image width={20} src={check} />
-              <Typography>{t('home.rule1')}</Typography>
+              <Typography fontWeight={500}>{t('home.rule1')}</Typography>
             </Stack>
             <Stack spacing={4} alignItems={'center'} direction={'row'}>
               <Image width={20} src={check} />
-              <Typography>{t('home.rule2')}</Typography>
+              <Typography fontWeight={500}>{t('home.rule2')}</Typography>
             </Stack>
             <Stack spacing={4} alignItems={'center'} direction={'row'}>
               <Image width={20} src={check} />
-              <Typography>{t('home.rule3')}</Typography>
+              <Typography fontWeight={500}>{t('home.rule3')}</Typography>
             </Stack>
             <Stack spacing={4} alignItems={'center'} direction={'row'}>
               <Image width={20} src={check} />
-              <Typography>{t('home.rule4')}</Typography>
+              <Typography fontWeight={500}>{t('home.rule4')}</Typography>
             </Stack>
             <Stack spacing={4} alignItems={'center'} direction={'row'}>
               <Image width={20} src={check} />
-              <Typography>{t('home.rule5')}</Typography>
+              <Typography fontWeight={500}>{t('home.rule5')}</Typography>
             </Stack>
             <Stack spacing={4} alignItems={'center'} direction={'row'}>
               <Image width={20} src={check} />
-              <Typography>{t('home.rule6')}</Typography>
+              <Typography fontWeight={500}>{t('home.rule6')}</Typography>
             </Stack>
           </Stack>
           <Image
@@ -86,15 +86,17 @@ export default function Home() {
         <Image width={160} src={isEn ? title2en : title2} />
         <Stack alignItems={'center'} direction={'row'}>
           <Image width={160} src={rule} />
-          <Typography>{t('home.text1')}</Typography>
+          <Typography fontWeight={500}>{t('home.text1')}</Typography>
         </Stack>
         <Image width={160} src={isEn ? title3en : title3} />
         <Image width={'80%'} src={isEn ? lockEN : lock} />
         <Image width={160} src={isEn ? title4en : title4} />
         <Stack>
           <Image style={{ alignSelf: 'flex-end' }} width={200} src={earn} />
-          <Typography mt={20}>{t('home.text2')}</Typography>
-          <Typography>{t('home.text3')}</Typography>
+          <Typography fontWeight={500} mt={20}>
+            {t('home.text2')}
+          </Typography>
+          <Typography fontWeight={500}>{t('home.text3')}</Typography>
         </Stack>
       </Stack>
       <Stack pt={30} spacing={23} margin={'auto'} direction={'row'}>

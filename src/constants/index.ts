@@ -118,7 +118,7 @@ export const NODE_SALE_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
   [ChainId.BSC]: 'USDT',
-  [ChainId.BSCTEST]: '0x8d2d18e56f7740488e3B2928825FF9A60058f5eC'
+  [ChainId.BSCTEST]: '0xdb03De579620C6aFF23aBe7051E3859b92074970'
 }
 
 export const NODE_DIVIDEND_ADDRESS: { [chainId in ChainId]: string } = {
@@ -128,7 +128,7 @@ export const NODE_DIVIDEND_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
   [ChainId.BSC]: 'USDT',
-  [ChainId.BSCTEST]: '0x253c3e526c8bdb9D51e91503c277401361F88E17'
+  [ChainId.BSCTEST]: '0x04D3bd77E1FE9eF5cf9cE1843cbD2727A4AeDc14'
 }
 
 export const EARN_ADDRESS: { [chainId in ChainId]: string } = {
@@ -138,7 +138,7 @@ export const EARN_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
   [ChainId.BSC]: 'USDT',
-  [ChainId.BSCTEST]: '0xd9B54e1Fca02e38D616e55a9ed9F1FfF30513137'
+  [ChainId.BSCTEST]: '0xA0c173130E4F391cb748460a3CB80E3B882009D1'
 }
 
 export const LIVE_EARN_ADDRESS: { [chainId in ChainId]: string } = {
@@ -148,7 +148,7 @@ export const LIVE_EARN_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
   [ChainId.BSC]: 'USDT',
-  [ChainId.BSCTEST]: '0xDC8755A4E0fEFF65432B5d2702c9354a7e9b2eA1'
+  [ChainId.BSCTEST]: '0xF633561E7f91Cd337bBF82510f499D5661d81FEB'
 }
 
 export const USDT: { [chainId in ChainId]: Token } = {

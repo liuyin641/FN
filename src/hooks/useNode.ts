@@ -72,6 +72,13 @@ export function useNodeRewards() {
   }, [infoRes.result, rewardPerRes?.result, rewardRes?.result, totalRewardsRes?.result])
 }
 
+export function useStatus() {
+  const { account } = useActiveWeb3React()
+  const contract = useEarnContract({ isLive: false })
+  const totalSupplyRes = useSingleCallResult(contract, 'isForceClaim', [account ?? undefined])
+  return totalSupplyRes?.result?.[0]
+}
+
 export function useEarnInfo({ isLive }: { isLive: boolean }) {
   const { account } = useActiveWeb3React()
   const contract = useEarnContract({ isLive })

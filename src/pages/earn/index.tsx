@@ -14,7 +14,15 @@ import { useActiveWeb3React } from '../../hooks'
 import { CurrencyAmount, TokenAmount } from '../../constants/token'
 import { tryParseAmount } from '../../utils/parseAmount'
 import { EARN_ADDRESS, FN, LIVE_EARN_ADDRESS, ZERO_ADDRESS } from '../../constants'
-import { useAbleEarnAddress, useClaim, useDealEarn, useEarn, useEarnInfo, useWithdraw } from '../../hooks/useNode'
+import {
+  useAbleEarnAddress,
+  useClaim,
+  useDealEarn,
+  useEarn,
+  useEarnInfo,
+  useStatus,
+  useWithdraw
+} from '../../hooks/useNode'
 import TransactionSubmittedModal from 'components/Modal/TransactionModals/TransactiontionSubmittedModal'
 import MessageBox from 'components/Modal/TransactionModals/MessageBox'
 import useModal from '../../hooks/useModal'
@@ -128,6 +136,7 @@ export default function Earn() {
   const { showModal, hideModal } = useModal()
   const { withdraw } = useWithdraw()
   const { claim } = useClaim()
+  const status = useStatus()
   const earnInfo = useEarnInfo({ isLive: false })
   const liveEarnInfo = useEarnInfo({ isLive: true })
   const { rewards, subordinatesL1, subordinatesL2, inviter } = useDealEarn()
@@ -334,7 +343,7 @@ export default function Earn() {
                 withCallback(false)
               }}
             >
-              {t('withdraw')}
+              {status ? t('force') : t('withdraw')}
             </Button>
           </Stack>
           {!!earnInfo?.totalSupply && (
