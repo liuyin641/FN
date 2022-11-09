@@ -168,7 +168,7 @@ export const FN: { [chainId in ChainId]: Token } = {
   [ChainId.GÖRLI]: new Token(ChainId.MAINNET, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
   [ChainId.KOVAN]: new Token(ChainId.MAINNET, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
   [ChainId.BSC]: new Token(ChainId.BSC, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
-  [ChainId.BSCTEST]: new Token(ChainId.BSCTEST, '0xC08A817cAd8eAC44F9F803084DD97B56b783b925', 18, 'USDT', 'USDT')
+  [ChainId.BSCTEST]: new Token(ChainId.BSCTEST, '0x61EA09a50883658B2093426628D87b07f01Aa624', 18, 'USDT', 'USDT')
 }
 
 export const FIRST_ADDRESS = '0xbA44b42cB0aB2Cf4C80C347e08884651936a3C92'

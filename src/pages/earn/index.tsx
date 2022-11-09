@@ -185,7 +185,6 @@ export default function Earn() {
   )
 
   const blockNumber = useBlockNumber()
-  console.log('blockNumber', blockNumber)
 
   return (
     <Stack maxWidth={isMobile ? '100%' : 540}>
