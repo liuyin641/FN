@@ -104,7 +104,7 @@ export function useDealEarn() {
   const infoRes = useSingleCallResult(contract, 'userInfo', [account ?? undefined])
   return useMemo(() => {
     return {
-      rewards: infoRes?.result ? CurrencyAmount.ether(infoRes.result.userRewards) : undefined,
+      rewards: infoRes?.result ? CurrencyAmount.ether(infoRes.result.refferalRewards) : undefined,
       subordinatesL1: infoRes?.result ? infoRes.result.subordinatesL1 : undefined,
       subordinatesL2: infoRes?.result ? infoRes.result.subordinatesL2 : undefined,
       inviter: infoRes?.result ? infoRes.result.inviter : ZERO_ADDRESS
