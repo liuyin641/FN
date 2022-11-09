@@ -138,7 +138,7 @@ export const EARN_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
   [ChainId.BSC]: 'USDT',
-  [ChainId.BSCTEST]: '0x4cef0FE9bBa887aA28c5394df53E2D499767fc38'
+  [ChainId.BSCTEST]: '0xd9B54e1Fca02e38D616e55a9ed9F1FfF30513137'
 }
 
 export const LIVE_EARN_ADDRESS: { [chainId in ChainId]: string } = {
