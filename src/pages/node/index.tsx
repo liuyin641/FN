@@ -37,7 +37,7 @@ function InfoItem({ title, value }: { title: string; value: string }) {
   return (
     <Grid key={title} item xs={4}>
       <Stack width={100} spacing={8}>
-        <Typography fontWeight={500}>{title}</Typography>
+        <Typography fontWeight={600}>{title}</Typography>
         <Typography fontSize={12}>{value}</Typography>
       </Stack>
     </Grid>
