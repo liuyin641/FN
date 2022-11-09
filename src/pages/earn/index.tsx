@@ -51,7 +51,7 @@ function EarnModal({
   const inputAmount = tryParseAmount(typed, FN[chainId ?? 56]) as TokenAmount | undefined
   const minAmount = tryParseAmount('10000', FN[chainId ?? 56]) as TokenAmount | undefined
 
-  const enoughAsset = fnBalance && inputAmount && fnBalance.greaterThan(inputAmount)
+  const enoughAsset = fnBalance && inputAmount && (fnBalance.greaterThan(inputAmount) || fnBalance.equalTo(inputAmount))
   const minAsset = inputAmount && minAmount && minAmount.greaterThan(inputAmount)
   console.log('tag-->', minAmount?.raw.toString(), inputAmount?.raw.toString())
   const [approvalState, approveCallback] = useApproveCallback(
@@ -87,7 +87,7 @@ function EarnModal({
         <NumericalInput
           unit="FN"
           balance={fnBalance?.toFixed(2)}
-          placeholder={''}
+          placeholder={t('minAmount')}
           endAdornment={<img alt="" style={{ width: 28, maxWidth: 'unset', marginRight: 12 }} src={fnImg} />}
           value={typed}
           height={60}
@@ -267,7 +267,7 @@ export default function Earn() {
               {earnInfo?.balance ? earnInfo.balance.toFixed(2, { groupSeparator: ',' }).toString() : '--'}
             </Typography>
           </Stack>
-          <Stack mt={20} direction={'row'} justifyContent={'space-between'}>
+          <Stack mt={20} mb={20} direction={'row'} justifyContent={'space-between'}>
             <Stack>
               <Typography>{t('rewards')}</Typography>
               <Typography>
@@ -294,7 +294,7 @@ export default function Earn() {
               {t('unableAddress')}
             </Typography>
           )}
-          <Stack mt={20} spacing={12} direction={'row'}>
+          <Stack spacing={12} direction={'row'}>
             <Button
               disabled={inviter === ZERO_ADDRESS && !ableAddress}
               onClick={() => {

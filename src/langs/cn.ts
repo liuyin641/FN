@@ -5,7 +5,7 @@ export const cn = {
   no: '否',
   approving: '授权中',
   insufficient: '余额不足',
-  unableAddress: '链接未激活，请更换链接',
+  unableAddress: '推荐链接无效',
   approve: '授权',
   bind: '上级地址',
   pay: '支付',
@@ -46,7 +46,8 @@ export const cn = {
     tvl: '年化收益率',
     saveToken: '存币',
     invite: '节点推荐',
-    myRewards: '已获得奖励'
+    myRewards: '已获得奖励',
+    minAmount: '最低存币10000 FN'
   },
   sport: {
     title: 'sport'

@@ -18,6 +18,7 @@ export const en = {
   save: 'Save',
   buy: 'Buy a node',
   inviteLink: 'Invite link',
+  minAmount: 'At least 10000 FN',
   home: {
     title: 'Home'
   },
@@ -44,7 +45,7 @@ export const en = {
     s: 'Save',
     claim: 'Claim',
     tvl: 'TVL',
-    saveToken: 'Save token',
+    saveToken: 'Stake',
     invite: 'Invite node',
     myRewards: 'Rewards'
   },
