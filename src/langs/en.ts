@@ -17,6 +17,7 @@ export const en = {
   withdraw: 'Withdraw',
   save: 'Save',
   buy: 'Buy a node',
+  inviteLink: 'Invite link',
   home: {
     title: 'Home'
   },

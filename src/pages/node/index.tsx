@@ -36,7 +36,7 @@ function InfoItem({ title, value }: { title: string; value: string }) {
     <Grid key={title} item xs={4}>
       <Stack width={100}>
         <Typography>{title}</Typography>
-        <Typography>{value}</Typography>
+        <Typography fontSize={12}>{value}</Typography>
       </Stack>
     </Grid>
   )
@@ -145,7 +145,7 @@ export default function Node() {
       </Stack>
 
       <Stack margin={20} borderRadius={'20px'} mt={30} sx={{ background: '#F8F6FF' }} border={'1px solid #DDDDDD'}>
-        <Title>节点推荐</Title>
+        <Title>{t('inviteLink')}</Title>
         <Divider />
         <Stack padding={isMobile ? 20 : 30}>
           <Stack spacing={12}>

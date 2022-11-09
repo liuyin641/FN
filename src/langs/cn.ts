@@ -17,6 +17,7 @@ export const cn = {
   withdraw: '撤出',
   save: '存入',
   buy: '购买一个节点',
+  inviteLink: '推荐链接',
   home: {
     title: '首页'
   },
