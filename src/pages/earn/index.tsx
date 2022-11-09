@@ -1,6 +1,7 @@
 import { Button, Stack, styled, Typography } from '@mui/material'
 import Image from '../../components/Image'
 import earnBanner from '../../assets/images/earn-banner.png'
+import earnBannerEN from '../../assets/images/earn-banner-en.png'
 import Divider from '../../components/Divider'
 import { isMobile } from 'react-device-detect'
 import ActionButton from '../../components/Button/ActionButton'
@@ -53,7 +54,6 @@ function EarnModal({
 
   const enoughAsset = fnBalance && inputAmount && (fnBalance.greaterThan(inputAmount) || fnBalance.equalTo(inputAmount))
   const minAsset = inputAmount && minAmount && minAmount.greaterThan(inputAmount)
-  console.log('tag-->', minAmount?.raw.toString(), inputAmount?.raw.toString())
   const [approvalState, approveCallback] = useApproveCallback(
     inputAmount,
     isLive ? LIVE_EARN_ADDRESS[chainId ?? 56] : EARN_ADDRESS[chainId ?? 56]
@@ -130,7 +130,9 @@ export default function Earn() {
   const liveEarnInfo = useEarnInfo({ isLive: true })
   const { rewards, subordinatesL1, subordinatesL2, inviter } = useDealEarn()
   const { ableAddress } = useAbleEarnAddress(params.inviter)
-  const { t } = useI18n()
+  const { t, i18n } = useI18n()
+  const lang = i18n.getLang()
+  const isEn = lang === 'en'
   const withCallback = useCallback(
     async (isLive: boolean) => {
       if (!account) return
@@ -173,7 +175,7 @@ export default function Earn() {
 
   return (
     <Stack maxWidth={isMobile ? '100%' : 540}>
-      <Image style={{ margin: isMobile ? 0 : 20 }} src={earnBanner} />
+      <Image style={{ margin: isMobile ? 0 : 20 }} src={isEn ? earnBannerEN : earnBanner} />
       <Stack
         margin={20}
         borderRadius={'20px'}

@@ -1,6 +1,7 @@
 import { Button, Grid, Stack, styled, Typography } from '@mui/material'
 import Image from '../../components/Image'
 import nodeBanner from '../../assets/images/node-banner.png'
+import nodeBannerEN from '../../assets/images/node-banner-en.png'
 import Divider from '../../components/Divider'
 import { isMobile } from 'react-device-detect'
 import ActionButton from '../../components/Button/ActionButton'
@@ -50,7 +51,7 @@ export default function Node() {
   const { account, chainId } = useActiveWeb3React()
   const { buy } = useBuy()
   const { claim } = useClaimNodeRewards()
-  const { t } = useI18n()
+  const { t, i18n } = useI18n()
   const usdtBalance = useTokenBalance(account ?? undefined, USDT[chainId ?? 56])
   const inputAmount = tryParseAmount(typed, USDT[chainId ?? 56]) as TokenAmount | undefined
   const [approvalState, approveCallback] = useApproveCallback(inputAmount, NODE_SALE_ADDRESS[chainId ?? 56])
@@ -59,6 +60,9 @@ export default function Node() {
   const enoughAsset = usdtBalance && inputAmount && usdtBalance.greaterThan(inputAmount)
 
   const { ableNode } = useIsNode(params.inviter)
+
+  const lang = i18n.getLang()
+  const isEn = lang === 'en'
 
   const buyCallback = useCallback(async () => {
     if (!account) return
@@ -96,7 +100,7 @@ export default function Node() {
   }, [account, showModal, claim, hideModal])
   return (
     <Stack maxWidth={isMobile ? '100%' : 540}>
-      <Image style={{ margin: isMobile ? 0 : 20 }} src={nodeBanner} />
+      <Image style={{ margin: isMobile ? 0 : 20 }} src={isEn ? nodeBannerEN : nodeBanner} />
       <Stack
         margin={20}
         sx={{ background: '#F8F6FF', borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
