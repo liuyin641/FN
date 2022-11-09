@@ -132,8 +132,8 @@ export default function Header() {
       <Filler />
       <StyledAppBar>
         <Box display="flex" alignItems="center">
-          <Image src={logo} width={isMobile ? 18 : 40} />
-          <Image style={{ marginLeft: 12 }} src={logoText} height={isMobile ? 10 : 25} />
+          <Image src={logo} width={isMobile ? 18 : 28} />
+          <Image style={{ marginLeft: 12 }} src={logoText} height={isMobile ? 10 : 20} />
           <MainLogo id={'logo'} to={'/'}></MainLogo>
           <HideOnMobile breakpoint="md">
             <LinksWrapper>

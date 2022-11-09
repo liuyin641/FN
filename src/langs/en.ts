@@ -27,10 +27,10 @@ export const en = {
     rewards: 'My Rewards',
     nodes: 'Nodes',
     isNode: 'IsNode',
-    totalRewards: 'Total Rewards',
-    preRewards: 'Each node Rewards',
-    claimedRewards: 'Claimed Rewards',
-    ableRewards: 'Available Rewards',
+    totalRewards: 'Rewards',
+    preRewards: 'Each node',
+    claimedRewards: 'Claimed',
+    ableRewards: 'Available',
     claim: 'Claim Rewards'
   },
   earn: {
