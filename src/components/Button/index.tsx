@@ -5,4 +5,5 @@ export const SmallButton = styled(Button)`
   border-radius: 15px;
   width: fit-content;
   height: 30px;
+  line-height: 30px;
 `
