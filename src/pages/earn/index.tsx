@@ -10,7 +10,7 @@ import NumericalInput from 'components/Input/InputNumerical'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { useCallback, useState } from 'react'
 import { useActiveWeb3React } from '../../hooks'
-import { TokenAmount } from '../../constants/token'
+import { CurrencyAmount, TokenAmount } from '../../constants/token'
 import { tryParseAmount } from '../../utils/parseAmount'
 import { EARN_ADDRESS, FN, LIVE_EARN_ADDRESS, ZERO_ADDRESS } from '../../constants'
 import { useAbleEarnAddress, useClaim, useDealEarn, useEarn, useEarnInfo, useWithdraw } from '../../hooks/useNode'
@@ -194,7 +194,7 @@ export default function Earn() {
           </Stack>
           <Stack spacing={12}>
             <Typography fontSize={24} color={'#EBB15E'} textAlign={'center'}>
-              0%
+              {liveEarnInfo?.apy ? CurrencyAmount.ether(liveEarnInfo.apy.toString()).toFixed(2).toString() : '--'} %
             </Typography>
             <Typography textAlign={'center'}>{t('earn.tvl')}</Typography>
           </Stack>
@@ -256,7 +256,7 @@ export default function Earn() {
           </Stack>
           <Stack spacing={12}>
             <Typography fontSize={24} color={'#EBB15E'} textAlign={'center'}>
-              0%
+              {earnInfo?.apy ? CurrencyAmount.ether(earnInfo.apy.toString()).toFixed(2).toString() : '--'} %
             </Typography>
             <Typography textAlign={'center'}>{t('earn.tvl')}</Typography>
           </Stack>

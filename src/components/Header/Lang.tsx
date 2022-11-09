@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack, styled, Tooltip, Typography } from '@mui/material'
+import { Box, Stack, styled, Tooltip, Typography } from '@mui/material'
 import lang from '../../assets/images/lang.png'
 import Image from '../Image'
 import { useState } from 'react'
@@ -35,7 +35,7 @@ export default function Lang() {
             <LangItem
               onClick={() => {
                 setOpen(false)
-                i18n.setLang('cn')
+                i18n.setLang('en')
               }}
             >
               English
@@ -43,15 +43,13 @@ export default function Lang() {
           </Stack>
         }
       >
-        <IconButton>
-          <Image
-            width={isMobile ? 24 : 40}
-            onClick={() => {
-              setOpen(!open)
-            }}
-            src={lang}
-          />
-        </IconButton>
+        <Image
+          width={isMobile ? 24 : 32}
+          onClick={() => {
+            setOpen(!open)
+          }}
+          src={lang}
+        />
       </Tooltip>
     </Box>
   )

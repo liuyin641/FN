@@ -19,8 +19,19 @@ export const en = {
   buy: 'Buy a node',
   inviteLink: 'Invite link',
   minAmount: 'At least 10000 FN',
+  totalSupply: 'Total Supply',
   home: {
-    title: 'Home'
+    title: 'Home',
+    token: 'FN Token',
+    rule1: '100 Million',
+    rule2: '40 Million for Pool',
+    rule3: '20 Million  for node share',
+    rule4: '15 Million for fixed term deposit interest',
+    rule5: '20 Million for fixed term deposit referral reward',
+    rule6: '5 Million for current deposit interest',
+    text1: 'Buy and Sell:  2% LP fee, 2% marketing fee , 2% node reward fee. Transfer: no fees',
+    text2: '1: current deposit, claim reward and withdraw at any time',
+    text3: '2: fixed term deposit, claim reward at any time, withdraw after 30 days, or force withdraw with extra fine'
   },
   node: {
     title: 'Node',

@@ -75,14 +75,26 @@ export function useNodeRewards() {
 export function useEarnInfo({ isLive }: { isLive: boolean }) {
   const { account } = useActiveWeb3React()
   const contract = useEarnContract({ isLive })
+  const totalSupplyRes = useSingleCallResult(contract, 'totalSupply')
+  const rewardInfoRes = useSingleCallResult(contract, 'rewardTokenInfo')
   const balanceRes = useSingleCallResult(contract, 'balanceOf', [account ?? undefined])
   const rewardRes = useSingleCallResult(contract, 'getPendingReward', [account ?? undefined])
   return useMemo(() => {
     return {
       balance: balanceRes?.result ? CurrencyAmount.ether(balanceRes?.result?.[0].toString()) : undefined,
-      rewards: rewardRes?.result ? CurrencyAmount.ether(rewardRes?.result?.[0].toString()) : undefined
+      rewards: rewardRes?.result ? CurrencyAmount.ether(rewardRes?.result?.[0].toString()) : undefined,
+      apy:
+        totalSupplyRes?.result && rewardInfoRes?.result
+          ? JSBI.divide(
+              JSBI.multiply(
+                JSBI.BigInt('1051200000'),
+                JSBI.multiply(JSBI.BigInt(1000000000000000000), JSBI.BigInt(rewardInfoRes?.result?.rewardPerBlock))
+              ),
+              JSBI.BigInt(totalSupplyRes?.result?.[0])
+            )
+          : undefined
     }
-  }, [balanceRes?.result, rewardRes?.result])
+  }, [balanceRes?.result, rewardInfoRes?.result, rewardRes?.result, totalSupplyRes?.result])
 }
 
 export function useDealEarn() {

@@ -225,6 +225,7 @@ export default function Header() {
         <Box display="flex" alignItems="center" gap={{ xs: '6px', sm: '20px' }}>
           {/*<NetworkSelect />*/}
           <Web3Status />
+          <Lang />
           <ShowOnMobile breakpoint="md">
             {/*<IconButton*/}
             {/*  sx={{*/}
@@ -245,7 +246,6 @@ export default function Header() {
             {/*    <path d="M1 7H13" strokeWidth="1.4" strokeLinecap="round" />*/}
             {/*  </svg>*/}
             {/*</IconButton>*/}
-            <Lang />
           </ShowOnMobile>
         </Box>
       </StyledAppBar>
