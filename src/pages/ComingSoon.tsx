@@ -1,5 +1,6 @@
 import { styled } from '@mui/material'
 import { Dots } from 'theme/components'
+import { useI18n } from 'react-simple-i18n'
 
 const Frame = styled('div')(`
 width: calc(100% - 40px);
@@ -23,13 +24,14 @@ const Title = styled('p')(`
 `)
 
 export default function ComingSoon() {
+  const { t } = useI18n()
   return (
     <Frame>
       <Title>
-        Coming Soon <Dots />
+        {t('coming')} <Dots />
       </Title>
-      <div>This section is still implemeting.</div>
-      <div>Please come back later</div>
+      <div>{t('implemeting')}</div>
+      <div>{t('back')}</div>
     </Frame>
   )
 }

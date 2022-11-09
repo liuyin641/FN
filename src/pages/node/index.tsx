@@ -35,7 +35,7 @@ const Title = styled(Typography)`
 function InfoItem({ title, value }: { title: string; value: string }) {
   return (
     <Grid key={title} item xs={4}>
-      <Stack width={100}>
+      <Stack width={100} spacing={8}>
         <Typography>{title}</Typography>
         <Typography fontSize={12}>{value}</Typography>
       </Stack>
@@ -121,7 +121,7 @@ export default function Node() {
           />
           {params?.inviter && inviter === ZERO_ADDRESS && (
             <Stack mb={8} direction={'row'} justifyContent={'space-between'}>
-              <Typography>{t('node.bind')}:</Typography>
+              <Typography>{t('bind')}:</Typography>
               <Typography>{shortenAddress(params.inviter, 12)}</Typography>
             </Stack>
           )}
@@ -154,11 +154,13 @@ export default function Node() {
         <Stack padding={isMobile ? 20 : 30}>
           <Stack spacing={12}>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>{shortenText(window.location.host + '/node/' + account, isMobile ? 6 : 12)}</Typography>
+              <Typography>
+                {shortenText('https://' + window.location.host + '/node/' + account, isMobile ? 6 : 12)}
+              </Typography>
               <SmallButton
                 disabled={isCopied}
                 onClick={() => {
-                  setCopied(window.location.host + '/node/' + account)
+                  setCopied('https://' + window.location.host + '/node/' + account)
                 }}
               >
                 {isCopied ? t('copied') : 'copy'}

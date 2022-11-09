@@ -87,7 +87,7 @@ function EarnModal({
         <NumericalInput
           unit="FN"
           balance={fnBalance?.toFixed(2)}
-          placeholder={t('minAmount')}
+          placeholder={isLive ? '' : t('minAmount')}
           endAdornment={<img alt="" style={{ width: 28, maxWidth: 'unset', marginRight: 12 }} src={fnImg} />}
           value={typed}
           height={60}
@@ -323,11 +323,13 @@ export default function Earn() {
         <Stack padding={isMobile ? 20 : 30}>
           <Stack spacing={12}>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-              <Typography>{shortenText(window.location.host + '/earn/' + account, isMobile ? 6 : 12)}</Typography>
+              <Typography>
+                {shortenText('https://' + window.location.host + '/earn/' + account, isMobile ? 6 : 12)}
+              </Typography>
               <SmallButton
                 disabled={isCopied}
                 onClick={() => {
-                  setCopied(window.location.host + '/earn/' + account)
+                  setCopied('https://' + window.location.host + '/earn/' + account)
                 }}
               >
                 {isCopied ? t('copied') : t('copy')}

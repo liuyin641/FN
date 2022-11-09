@@ -1,4 +1,8 @@
 export const cn = {
+  implemeting: '正在研发中。',
+  back: '敬请期待',
+  coming: '即将开启',
+  minAmount: '最低存币10000 FN',
   copy: '复制',
   copied: '已复制',
   yes: '是',
@@ -22,7 +26,7 @@ export const cn = {
   home: {
     title: '首页',
     token: '代币FN',
-    rule1: '1亿',
+    rule1: '总量：1亿',
     rule2: '4000万底池',
     rule3: '2000万节点权益，锁仓一年',
     rule4: '1500万定期利息',
@@ -57,8 +61,7 @@ export const cn = {
     tvl: '年化收益率',
     saveToken: '存币',
     invite: '节点推荐',
-    myRewards: '已获得奖励',
-    minAmount: '最低存币10000 FN'
+    myRewards: '已获得奖励'
   },
   sport: {
     title: '体育'

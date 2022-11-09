@@ -1,4 +1,7 @@
 export const en = {
+  implemeting: 'This section is still implemeting.',
+  back: 'Please come back later',
+  coming: 'Coming soon',
   copy: 'copy',
   copied: 'copied',
   yes: 'yes',
@@ -23,7 +26,7 @@ export const en = {
   home: {
     title: 'Home',
     token: 'FN Token',
-    rule1: '100 Million',
+    rule1: 'Total supply：100 Million',
     rule2: '40 Million for Pool',
     rule3: '20 Million  for node share',
     rule4: '15 Million for fixed term deposit interest',

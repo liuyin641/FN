@@ -23,10 +23,10 @@ import { useI18n } from 'react-simple-i18n'
 
 const TextBG = styled('div')`
   height: 8px;
-  width: 80px;
+  width: 100%;
   background: linear-gradient(84deg, #7d2750 0%, #3b5b8f 100%);
   position: absolute;
-  margin-top: 12px;
+  margin-top: 14px;
   border-radius: 3px;
   opacity: 0.6;
 `
@@ -40,8 +40,8 @@ export default function Home() {
       <Image style={{ margin: 20 }} src={isEn ? homeBannerEn : homeBanner} />
       <Stack alignItems={'center'} spacing={30} padding={'20px'}>
         <Image width={160} src={isEn ? title1en : title1} />
-        <Stack alignSelf={'start'}>
-          <Typography marginLeft={8} fontWeight={500} fontSize={20}>
+        <Stack alignSelf={'start'} position={'relative'}>
+          <Typography fontWeight={500} marginLeft={8} marginRight={8} fontSize={20}>
             {t('home.token')}
           </Typography>
           <TextBG />
@@ -50,7 +50,7 @@ export default function Home() {
           <Stack spacing={8}>
             <Stack spacing={4} alignItems={'center'} direction={'row'}>
               <Image width={20} src={check} />
-              <Typography>{t('totalSupply')}</Typography>
+              <Typography>{t('home.rule1')}</Typography>
             </Stack>
             <Stack spacing={4} alignItems={'center'} direction={'row'}>
               <Image width={20} src={check} />
