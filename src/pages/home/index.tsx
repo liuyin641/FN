@@ -15,7 +15,7 @@ export default function Home() {
   const lang = i18n.getLang()
   const isEn = lang === 'en'
   return (
-    <Stack maxWidth={isMobile ? '100%' : 540} paddingBottom={200}>
+    <Stack maxWidth={isMobile ? '100%' : 540} paddingBottom={30}>
       <Image width={isMobile ? '100%' : 540} height={'fit-content'} src={isEn ? homeBannerEn : homeBanner} />
       <Image src={isEn ? homeEN : home} />
       {/*<Stack alignItems={'center'} spacing={30} padding={'20px'}>*/}
