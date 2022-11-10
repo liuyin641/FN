@@ -40,7 +40,7 @@ export default function Home() {
   const isEn = lang === 'en'
   return (
     <Stack maxWidth={isMobile ? '100%' : 540} paddingBottom={200}>
-      <Image style={{ margin: 20 }} height={'fit-content'} src={isEn ? homeBannerEn : homeBanner} />
+      <Image width={isMobile ? '100%' : 540} height={'fit-content'} src={isEn ? homeBannerEn : homeBanner} />
       <Stack alignItems={'center'} spacing={30} padding={'20px'}>
         <Image width={160} src={isEn ? title1en : title1} />
         <Stack alignSelf={'start'} position={'relative'}>
