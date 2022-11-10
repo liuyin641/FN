@@ -114,12 +114,12 @@ export const override: any = {
         paddingRight: '0px!important'
       },
       'html, input, textarea, button, body': {
-        fontFamily: 'Roboto, -apple-system, BlinkMacSystemFont, sans-serif',
+        fontFamily: 'PingFangSC, Roboto, -apple-system, BlinkMacSystemFont, sans-serif',
         fontDisplay: 'fallback'
       },
       '@supports (font-variation-settings: normal)': {
         'html, input, textarea, button, body': {
-          fontFamily: 'Roboto, -apple-system, BlinkMacSystemFont, sans-serif',
+          fontFamily: 'PingFangSC, Roboto, -apple-system, BlinkMacSystemFont, sans-serif',
           fontDisplay: 'fallback'
         }
       }
@@ -130,7 +130,7 @@ export const override: any = {
       root: {
         fontSize: 16,
         fontWeight: 500,
-        fontFamily: 'Roboto, -apple-system, BlinkMacSystemFont, sans-serif!important'
+        fontFamily: 'PingFangSC, Roboto, -apple-system, BlinkMacSystemFont, sans-serif!important'
       }
     }
   },
@@ -141,7 +141,7 @@ export const override: any = {
     },
     styleOverrides: {
       root: {
-        fontFamily: 'Roboto, -apple-system, BlinkMacSystemFont, sans-serif!important',
+        fontFamily: 'PingFangSC, Roboto, -apple-system, BlinkMacSystemFont, sans-serif!important',
         color: '#ffffff',
         borderRadius: theme.shape.borderRadius,
         transition: '.3s',
@@ -238,7 +238,7 @@ export const override: any = {
       root: {
         fontWeight: 500,
         lineHeight: 1.2,
-        fontFamily: 'Roboto, -apple-system, BlinkMacSystemFont, sans-serif!important'
+        fontFamily: 'PingFangSC, Roboto, -apple-system, BlinkMacSystemFont, sans-serif!important'
       },
       body1: {
         fontSize: 16
