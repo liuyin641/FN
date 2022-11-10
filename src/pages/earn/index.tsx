@@ -190,7 +190,7 @@ export default function Earn() {
   const blockNumber = useBlockNumber()
 
   return (
-    <Stack display={'block'} maxWidth={isMobile ? '100%' : 540}>
+    <Stack display={'block'} maxWidth={isMobile ? '100%' : 'unset'}>
       <Image
         width={isMobile ? '100%' : 540}
         style={{ margin: isMobile ? 0 : 20 }}
@@ -376,7 +376,7 @@ export default function Earn() {
       </Stack>
 
       <Stack margin={20} borderRadius={'20px'} sx={{ background: '#F8F6FF' }} border={'1px solid #DDDDDD'}>
-        <Title>{t('earn.invite')}</Title>
+        <Title>{t('inviterEarn')}</Title>
         <Divider />
         <Stack padding={isMobile ? 20 : 30}>
           <Stack spacing={12}>
@@ -413,10 +413,10 @@ export default function Earn() {
         </Stack>
       </Stack>
       <Stack justifyContent={'center'} pt={30} spacing={23} margin={'auto'} direction={'row'}>
-        <ExternalLink href={''}>
+        <ExternalLink href={'https://t.me/Formulanetwor_offical'}>
           <Image width={28} src={telegram} />
         </ExternalLink>
-        <ExternalLink href={''}>
+        <ExternalLink href={'https://twitter.com/network_formula?s=09'}>
           <Image width={28} src={twitter} />
         </ExternalLink>
       </Stack>

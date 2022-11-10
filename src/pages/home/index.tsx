@@ -77,10 +77,10 @@ export default function Home() {
       {/*  </Stack>*/}
       {/*</Stack>*/}
       <Stack width={'100%'} justifyContent={'center'} pt={30} spacing={23} direction={'row'}>
-        <ExternalLink href={''}>
+        <ExternalLink href={'https://t.me/Formulanetwor_offical'}>
           <Image width={28} src={telegram} />
         </ExternalLink>
-        <ExternalLink href={''}>
+        <ExternalLink href={'https://twitter.com/network_formula?s=09'}>
           <Image width={28} src={twitter} />
         </ExternalLink>
       </Stack>

@@ -103,13 +103,14 @@ export default function Node() {
       })
   }, [account, showModal, claim, hideModal])
   return (
-    <Stack maxWidth={isMobile ? '100%' : 540} display={'block'}>
+    <Stack maxWidth={isMobile ? '100%' : 'unset'} display={'block'}>
       <Image
         width={isMobile ? '100%' : 540}
         style={{ margin: isMobile ? 0 : 20 }}
         src={isEn ? nodeBannerEN : nodeBanner}
       />
       <Stack
+        width={isMobile ? '90%' : 540}
         margin={20}
         sx={{ background: '#F8F6FF', borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
         border={'1px solid #DDDDDD'}
@@ -156,7 +157,14 @@ export default function Node() {
         </Stack>
       </Stack>
 
-      <Stack margin={20} borderRadius={'20px'} mt={30} sx={{ background: '#F8F6FF' }} border={'1px solid #DDDDDD'}>
+      <Stack
+        width={isMobile ? '90%' : 540}
+        margin={20}
+        borderRadius={'20px'}
+        mt={30}
+        sx={{ background: '#F8F6FF' }}
+        border={'1px solid #DDDDDD'}
+      >
         <Title>{t('inviteLink')}</Title>
         <Divider />
         <Stack padding={isMobile ? 20 : 30}>
@@ -191,6 +199,7 @@ export default function Node() {
       </Stack>
 
       <Stack
+        width={isMobile ? '90%' : 540}
         margin={20}
         borderRadius={'20px'}
         mt={30}
@@ -223,10 +232,10 @@ export default function Node() {
         </Button>
       </Stack>
       <Stack justifyContent={'center'} pt={30} spacing={23} margin={'auto'} direction={'row'}>
-        <ExternalLink href={''}>
+        <ExternalLink href={'https://t.me/Formulanetwor_offical'}>
           <Image width={28} src={telegram} />
         </ExternalLink>
-        <ExternalLink href={''}>
+        <ExternalLink href={'https://twitter.com/network_formula?s=09'}>
           <Image width={28} src={twitter} />
         </ExternalLink>
       </Stack>

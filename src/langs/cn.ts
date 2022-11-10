@@ -74,5 +74,6 @@ export const cn = {
   dailyReward: '每日奖励',
   realizedReward: '已经释放奖励',
   tvl: '当前质押资金',
-  force: '强制撤出'
+  force: '强制撤出',
+  inviterEarn: '定期存币推荐'
 }

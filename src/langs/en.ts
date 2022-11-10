@@ -74,5 +74,6 @@ export const en = {
   dailyReward: 'Daily Reward',
   realizedReward: 'Realized Reward',
   tvl: 'TVL',
-  force: 'Force withdraw'
+  force: 'Force withdraw',
+  inviterEarn: 'Invite fixed deposit'
 }
