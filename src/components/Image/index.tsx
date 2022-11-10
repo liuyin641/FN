@@ -24,7 +24,7 @@ export default function Image({
       {...rest}
       src={srcStr}
       alt={alt}
-      style={{ ...style, ...{ objectFit: 'fill' } }}
+      style={{ ...style, ...{ objectFit: 'contain' } }}
       className={className}
       onError={() => {
         if (srcStr) BAD_SRCS[srcStr] = true

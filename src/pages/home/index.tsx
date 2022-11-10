@@ -15,9 +15,9 @@ export default function Home() {
   const lang = i18n.getLang()
   const isEn = lang === 'en'
   return (
-    <Stack fontSize={'0'} maxWidth={isMobile ? '100%' : 540} paddingBottom={30}>
+    <Stack display={'block'} fontSize={'0'} maxWidth={isMobile ? '100%' : 540} paddingBottom={30}>
       <Image width={isMobile ? '100%' : 540} src={isEn ? homeBannerEn : homeBanner} />
-      <Image height={'fit-content'} src={isEn ? homeEN : home} />
+      <Image width={isMobile ? '100%' : 540} src={isEn ? homeEN : home} />
       {/*<Stack alignItems={'center'} spacing={30} padding={'20px'}>*/}
       {/*  <Image width={160} src={isEn ? title1en : title1} />*/}
       {/*  <Stack alignSelf={'start'} position={'relative'}>*/}
@@ -76,7 +76,7 @@ export default function Home() {
       {/*    <Typography fontWeight={500}>{t('home.text3')}</Typography>*/}
       {/*  </Stack>*/}
       {/*</Stack>*/}
-      <Stack pt={30} spacing={23} margin={'auto'} direction={'row'}>
+      <Stack width={'100%'} justifyContent={'center'} pt={30} spacing={23} direction={'row'}>
         <ExternalLink href={''}>
           <Image width={28} src={telegram} />
         </ExternalLink>

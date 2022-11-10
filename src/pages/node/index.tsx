@@ -103,8 +103,12 @@ export default function Node() {
       })
   }, [account, showModal, claim, hideModal])
   return (
-    <Stack maxWidth={isMobile ? '100%' : 540}>
-      <Image style={{ margin: isMobile ? 0 : 20 }} src={isEn ? nodeBannerEN : nodeBanner} />
+    <Stack maxWidth={isMobile ? '100%' : 540} display={'block'}>
+      <Image
+        width={isMobile ? '100%' : 540}
+        style={{ margin: isMobile ? 0 : 20 }}
+        src={isEn ? nodeBannerEN : nodeBanner}
+      />
       <Stack
         margin={20}
         sx={{ background: '#F8F6FF', borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
@@ -218,7 +222,7 @@ export default function Node() {
           {t('node.claim')}
         </Button>
       </Stack>
-      <Stack pt={30} spacing={23} margin={'auto'} direction={'row'}>
+      <Stack justifyContent={'center'} pt={30} spacing={23} margin={'auto'} direction={'row'}>
         <ExternalLink href={''}>
           <Image width={28} src={telegram} />
         </ExternalLink>

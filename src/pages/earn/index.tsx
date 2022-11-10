@@ -190,8 +190,12 @@ export default function Earn() {
   const blockNumber = useBlockNumber()
 
   return (
-    <Stack maxWidth={isMobile ? '100%' : 540}>
-      <Image style={{ margin: isMobile ? 0 : 20 }} src={isEn ? earnBannerEN : earnBanner} />
+    <Stack display={'block'} maxWidth={isMobile ? '100%' : 540}>
+      <Image
+        width={isMobile ? '100%' : 540}
+        style={{ margin: isMobile ? 0 : 20 }}
+        src={isEn ? earnBannerEN : earnBanner}
+      />
       <Stack
         margin={20}
         borderRadius={'20px'}
@@ -408,7 +412,7 @@ export default function Earn() {
           </Stack>
         </Stack>
       </Stack>
-      <Stack pt={30} spacing={23} margin={'auto'} direction={'row'}>
+      <Stack justifyContent={'center'} pt={30} spacing={23} margin={'auto'} direction={'row'}>
         <ExternalLink href={''}>
           <Image width={28} src={telegram} />
         </ExternalLink>
