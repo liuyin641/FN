@@ -115,12 +115,14 @@ export const override: any = {
       },
       'html, input, textarea, button, body': {
         fontFamily: 'PingFangSC, Roboto, -apple-system, BlinkMacSystemFont, sans-serif',
-        fontDisplay: 'fallback'
+        fontDisplay: 'fallback',
+        fontWeight: 500
       },
       '@supports (font-variation-settings: normal)': {
         'html, input, textarea, button, body': {
           fontFamily: 'PingFangSC, Roboto, -apple-system, BlinkMacSystemFont, sans-serif',
-          fontDisplay: 'fallback'
+          fontDisplay: 'fallback',
+          fontWeight: 500
         }
       }
     }
