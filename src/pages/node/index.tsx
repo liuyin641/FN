@@ -27,7 +27,7 @@ import { useI18n } from 'react-simple-i18n'
 
 const Title = styled(Typography)`
   font-size: 24px;
-  color: #643877;
+  color: #a41be0;
   text-align: center;
   margin: 20px;
   font-weight: 500;

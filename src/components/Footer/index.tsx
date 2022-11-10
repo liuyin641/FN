@@ -36,7 +36,15 @@ export default function Footer() {
   ]
   return (
     <ShowOnMobile>
-      <Stack position={'absolute'} bottom={0} width={'100vw'} direction={'row'} justifyContent={'space-around'}>
+      <Stack
+        sx={{ background: '#F8F6FF' }}
+        position={'absolute'}
+        bottom={0}
+        width={'100vw'}
+        direction={'row'}
+        justifyContent={'space-around'}
+        padding={'10px 0px'}
+      >
         {Tabs.map(({ title, icon, router }) => {
           return <TabButton key={title} icon={icon} title={title} router={router} />
         })}
