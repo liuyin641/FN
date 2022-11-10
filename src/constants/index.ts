@@ -117,7 +117,7 @@ export const NODE_SALE_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: 'USDT',
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
-  [ChainId.BSC]: 'USDT',
+  [ChainId.BSC]: '0xD413e3660b11003B1536d1dE5CB0d5629E1373Fa',
   [ChainId.BSCTEST]: '0xdb03De579620C6aFF23aBe7051E3859b92074970'
 }
 
@@ -127,7 +127,7 @@ export const NODE_DIVIDEND_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: 'USDT',
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
-  [ChainId.BSC]: 'USDT',
+  [ChainId.BSC]: '0x61Ccd7bD965FDeAaC9e87f67d6D5ff9BA0Ce198d',
   [ChainId.BSCTEST]: '0x04D3bd77E1FE9eF5cf9cE1843cbD2727A4AeDc14'
 }
 
@@ -137,7 +137,7 @@ export const EARN_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: 'USDT',
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
-  [ChainId.BSC]: 'USDT',
+  [ChainId.BSC]: '0x1188B6BF67A11B1bc513b0282df33Be93d801041',
   [ChainId.BSCTEST]: '0xA0c173130E4F391cb748460a3CB80E3B882009D1'
 }
 
@@ -147,7 +147,7 @@ export const LIVE_EARN_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: 'USDT',
   [ChainId.GÖRLI]: 'USDT',
   [ChainId.KOVAN]: 'USDT',
-  [ChainId.BSC]: 'USDT',
+  [ChainId.BSC]: '0xFE55a4bC6b824b4231A386B201163800217578C1',
   [ChainId.BSCTEST]: '0xF633561E7f91Cd337bBF82510f499D5661d81FEB'
 }
 
@@ -157,7 +157,7 @@ export const USDT: { [chainId in ChainId]: Token } = {
   [ChainId.RINKEBY]: new Token(ChainId.MAINNET, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
   [ChainId.GÖRLI]: new Token(ChainId.MAINNET, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
   [ChainId.KOVAN]: new Token(ChainId.MAINNET, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
-  [ChainId.BSC]: new Token(ChainId.BSC, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
+  [ChainId.BSC]: new Token(ChainId.BSC, '0x55d398326f99059fF775485246999027B3197955', 18, 'MATTER', 'Matter'),
   [ChainId.BSCTEST]: new Token(ChainId.BSCTEST, '0xFd8755535B187Da3c0653c450641180382C75521', 18, 'USDT', 'USDT')
 }
 
@@ -167,7 +167,7 @@ export const FN: { [chainId in ChainId]: Token } = {
   [ChainId.RINKEBY]: new Token(ChainId.MAINNET, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
   [ChainId.GÖRLI]: new Token(ChainId.MAINNET, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
   [ChainId.KOVAN]: new Token(ChainId.MAINNET, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
-  [ChainId.BSC]: new Token(ChainId.BSC, '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', 18, 'MATTER', 'Matter'),
+  [ChainId.BSC]: new Token(ChainId.BSC, '0xc60CB42B0db6041A117BFe7345e2f62339d6221C', 18, 'MATTER', 'Matter'),
   [ChainId.BSCTEST]: new Token(ChainId.BSCTEST, '0x61EA09a50883658B2093426628D87b07f01Aa624', 18, 'USDT', 'USDT')
 }
 
