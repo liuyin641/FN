@@ -38,7 +38,7 @@ export default function Footer() {
     <ShowOnMobile>
       <Stack
         sx={{ background: '#F8F6FF' }}
-        position={'absolute'}
+        position={'fixed'}
         bottom={0}
         width={'100vw'}
         direction={'row'}
