@@ -24,6 +24,9 @@ import useCopyClipboard from '../../hooks/useCopyClipboard'
 import { useParams } from 'react-router-dom'
 import { shortenAddress, shortenText } from '../../utils'
 import { useI18n } from 'react-simple-i18n'
+import { ExternalLink } from '../../theme/components'
+import telegram from '../../assets/socialLinksIcon/telegram.svg'
+import twitter from '../../assets/socialLinksIcon/twitter.svg'
 
 const Title = styled(Typography)`
   font-size: 24px;
@@ -214,6 +217,14 @@ export default function Node() {
         <Button disabled={!rewards || rewards.equalTo('0')} onClick={claimCallback} sx={{ marginTop: 30 }}>
           {t('node.claim')}
         </Button>
+      </Stack>
+      <Stack pt={30} spacing={23} margin={'auto'} direction={'row'}>
+        <ExternalLink href={''}>
+          <Image width={28} src={telegram} />
+        </ExternalLink>
+        <ExternalLink href={''}>
+          <Image width={28} src={twitter} />
+        </ExternalLink>
       </Stack>
     </Stack>
   )

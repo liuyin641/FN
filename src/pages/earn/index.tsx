@@ -36,6 +36,9 @@ import { useParams } from 'react-router-dom'
 import { useI18n } from 'react-simple-i18n'
 import DetailModal from '../../components/Modal/DetailModals'
 import { useBlockNumber } from '../../state/application/hooks'
+import { ExternalLink } from '../../theme/components'
+import telegram from '../../assets/socialLinksIcon/telegram.svg'
+import twitter from '../../assets/socialLinksIcon/twitter.svg'
 
 const Title = styled(Typography)`
   font-size: 24px;
@@ -404,6 +407,14 @@ export default function Earn() {
             </Stack>
           </Stack>
         </Stack>
+      </Stack>
+      <Stack pt={30} spacing={23} margin={'auto'} direction={'row'}>
+        <ExternalLink href={''}>
+          <Image width={28} src={telegram} />
+        </ExternalLink>
+        <ExternalLink href={''}>
+          <Image width={28} src={twitter} />
+        </ExternalLink>
       </Stack>
     </Stack>
   )
