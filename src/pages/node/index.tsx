@@ -61,7 +61,8 @@ export default function Node() {
   const [approvalState, approveCallback] = useApproveCallback(inputAmount, NODE_SALE_ADDRESS[chainId ?? 56])
   const { isNode, nodeCount, subordinates, reward, inviter } = useNodeInfo()
   const { totalRewards, rewardPer, rewards, claimedRewards } = useNodeRewards()
-  const enoughAsset = usdtBalance && inputAmount && usdtBalance.greaterThan(inputAmount)
+  const enoughAsset =
+    usdtBalance && inputAmount && (usdtBalance.greaterThan(inputAmount) || usdtBalance.equalTo(inputAmount))
 
   const { ableNode } = useIsNode(params.inviter)
 
