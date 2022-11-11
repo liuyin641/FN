@@ -407,7 +407,7 @@ export default function Earn() {
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
               <Typography fontWeight={500}>{t('bind')}</Typography>
-              <Typography>{shortenAddress(inviter, 8)}</Typography>
+              <Typography>{shortenAddress(inviter, 6)}</Typography>
             </Stack>
           </Stack>
         </Stack>
