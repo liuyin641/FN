@@ -171,4 +171,4 @@ export const FN: { [chainId in ChainId]: Token } = {
   [ChainId.BSCTEST]: new Token(ChainId.BSCTEST, '0x61EA09a50883658B2093426628D87b07f01Aa624', 18, 'USDT', 'USDT')
 }
 
-export const FIRST_ADDRESS = '0xbA44b42cB0aB2Cf4C80C347e08884651936a3C92'
+export const FIRST_ADDRESS = '0x7C2eDB42774b71D85569d5cd3B9d5C5a9481Bf19'

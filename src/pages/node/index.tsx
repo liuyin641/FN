@@ -131,7 +131,7 @@ export default function Node() {
           {params?.inviter && inviter === ZERO_ADDRESS && (
             <Stack mb={8} direction={'row'} justifyContent={'space-between'}>
               <Typography>{t('bind')}:</Typography>
-              <Typography>{shortenAddress(params.inviter, 12)}</Typography>
+              <Typography>{shortenAddress(params.inviter, 6)}</Typography>
             </Stack>
           )}
           {(!inviter || inviter === ZERO_ADDRESS) && !ableNode ? (
