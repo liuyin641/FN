@@ -43,13 +43,13 @@ export function useIsNode(address: string | undefined) {
 export function useAbleEarnAddress(address: string | undefined) {
   const contract = useEarnContract({ isLive: false })
   const inputs = [address && isAddress(address) ? address : undefined]
-  const infoRes = useSingleCallResult(contract, 'userInfo', inputs)
+  const infoRes = useSingleCallResult(contract, 'balanceOf', inputs)
   return useMemo(() => {
     if (isAddress(FIRST_ADDRESS) === isAddress(address)) {
       return { ableAddress: true }
     }
     return {
-      ableAddress: infoRes?.result ? infoRes.result.isNode : false
+      ableAddress: infoRes?.result ? infoRes.result?.[0] !== '0' : false
     }
   }, [address, infoRes.result])
 }
