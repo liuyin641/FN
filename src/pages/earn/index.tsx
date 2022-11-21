@@ -363,7 +363,7 @@ export default function Earn() {
                     address={EARN_ADDRESS[chainId ?? 56]}
                     totalRewards={'15,000,000'}
                     dayRewards={'41095.89'}
-                    rewards={blockNumber ? (1.42694064 * (blockNumber - blockNumber)).toFixed(2).toString() : '--'}
+                    rewards={blockNumber ? (1.42694064 * (blockNumber - 23224129)).toFixed(2).toString() : '--'}
                     totalSupply={earnInfo?.totalSupply?.toFixed(2).toString()}
                   />
                 )
