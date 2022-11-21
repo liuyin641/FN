@@ -271,7 +271,7 @@ export default function Earn() {
                     address={LIVE_EARN_ADDRESS[chainId ?? 56]}
                     totalRewards={'5,000,000'}
                     dayRewards={'13698.63'}
-                    rewards={blockNumber ? (0.47564688 * (blockNumber - blockNumber)).toFixed(2).toString() : '--'}
+                    rewards={blockNumber ? (0.47564688 * (blockNumber - 23224129)).toFixed(2).toString() : '--'}
                     totalSupply={liveEarnInfo?.totalSupply?.toFixed(2).toString()}
                   />
                 )
