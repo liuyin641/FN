@@ -117,7 +117,7 @@ export default function Header() {
     { title: t('home.title'), route: routes.Home },
     { title: t('node.title'), route: routes.Node },
     { title: t('earn.title'), route: routes.Earn },
-    { title: t('sport.title'), route: routes.Sport }
+    { title: t('sport.title'), link: 'https://dapp.formulanets.info' }
   ]
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { pathname } = useLocation()
