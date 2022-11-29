@@ -21,7 +21,7 @@ export function useNodeInfo() {
       reward: infoRes?.result ? CurrencyAmount.ether(infoRes.result.reward.toString()) : undefined,
       subordinates: infoRes?.result ? infoRes.result.subordinates.toString() : undefined,
       inviter: infoRes?.result ? infoRes.result.inviter : ZERO_ADDRESS,
-      nodeCount: Number(nodeCountRes?.result?.[0]) + 8 ?? undefined
+      nodeCount: Number(nodeCountRes?.result?.[0]) + 9 ?? undefined
     }
   }, [infoRes.result, nodeCountRes?.result])
 }
