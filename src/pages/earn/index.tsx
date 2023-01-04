@@ -245,6 +245,7 @@ export default function Earn() {
           </Stack>
           <Stack mt={20} spacing={12} direction={'row'}>
             <Button
+              disabled = false
               onClick={() => {
                 showModal(<EarnModal customOnDismiss={hideModal} isLive={true} inviter={params.inviter} />)
               }}
@@ -336,7 +337,7 @@ export default function Earn() {
           )}
           <Stack spacing={12} direction={'row'}>
             <Button
-              disabled={inviter === ZERO_ADDRESS && !ableAddress}
+              disabled=false
               onClick={() => {
                 showModal(<EarnModal customOnDismiss={hideModal} isLive={false} inviter={params.inviter} />)
               }}
