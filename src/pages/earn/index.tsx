@@ -231,7 +231,7 @@ export default function Earn() {
             <Stack>
               <Typography fontWeight={500}>{t('rewards')}</Typography>
               <Typography>
-                {'--'}
+                {0}
               </Typography>
             </Stack>
             <SmallButton
@@ -312,7 +312,7 @@ export default function Earn() {
             <Stack>
               <Typography fontWeight={500}>{t('rewards')}</Typography>
               <Typography>
-                {'--'}
+                {0}
               </Typography>
             </Stack>
             <SmallButton
