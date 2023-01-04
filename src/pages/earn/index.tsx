@@ -244,13 +244,13 @@ export default function Earn() {
             </SmallButton>
           </Stack>
           <Stack mt={20} spacing={12} direction={'row'}>
-            <Button
-<!--               onClick={() => {
+<!--             <Button
+              onClick={() => {
                 showModal(<EarnModal customOnDismiss={hideModal} isLive={true} inviter={params.inviter} />)
-              }} -->
+              }}
             >
               {t('earn.saveToken')}
-            </Button>
+            </Button> -->
             <Button
               disabled={!liveEarnInfo?.balance || liveEarnInfo?.balance.equalTo('0')}
               onClick={() => {
@@ -335,14 +335,14 @@ export default function Earn() {
             </Typography>
           )}
           <Stack spacing={12} direction={'row'}>
-            <Button
+<!--             <Button
               disabled={inviter === ZERO_ADDRESS && !ableAddress}
-<!--               onClick={() => {
+              onClick={() => {
                 showModal(<EarnModal customOnDismiss={hideModal} isLive={false} inviter={params.inviter} />)
-              }} -->
+              }}
             >
               {t('earn.saveToken')}
-            </Button>
+            </Button> -->
             <Button
               disabled={!earnInfo?.balance || earnInfo?.balance.equalTo('0')}
               onClick={() => {
