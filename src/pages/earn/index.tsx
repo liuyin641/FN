@@ -231,7 +231,7 @@ export default function Earn() {
             <Stack>
               <Typography fontWeight={500}>{t('rewards')}</Typography>
               <Typography>
-                {liveEarnInfo?.rewards ? liveEarnInfo.rewards.toFixed(2, { groupSeparator: ',' }) : '--'}
+                {'--'}
               </Typography>
             </Stack>
             <SmallButton
@@ -312,7 +312,7 @@ export default function Earn() {
             <Stack>
               <Typography fontWeight={500}>{t('rewards')}</Typography>
               <Typography>
-                {earnInfo?.rewards ? earnInfo.rewards.toFixed(2, { groupSeparator: ',' }).toString() : '--'}
+                {'--'}
               </Typography>
             </Stack>
             <SmallButton
