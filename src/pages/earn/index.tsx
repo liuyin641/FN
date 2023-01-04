@@ -235,7 +235,7 @@ export default function Earn() {
               </Typography>
             </Stack>
             <SmallButton
-              disabled={!liveEarnInfo?.rewards || liveEarnInfo.rewards.equalTo('0')}
+              disabled={true}
               onClick={() => {
                 claimCallback(true)
               }}
@@ -316,7 +316,7 @@ export default function Earn() {
               </Typography>
             </Stack>
             <SmallButton
-              disabled={!earnInfo?.rewards || earnInfo.rewards.equalTo('0')}
+              disabled={true}
               onClick={() => {
                 claimCallback(false)
               }}
